@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistral - Login</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+<div class="pagina-login">
+
+    <div class="cartao-login">
+
+        <div class="cabecalho">
+            <h1>Mistral</h1>
+            <p>Sistema de Controle de Produção</p>
+        </div>
+
+        <form id="formularioLogin">
+
+            <div class="campo">
+                <label for="matricula">Matrícula</label>
+                <input
+                    type="text"
+                    id="matricula"
+                    name="matricula"
+                    placeholder="Digite sua matrícula"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label for="senha">Senha</label>
+                <input
+                    type="password"
+                    id="senha"
+                    name="senha"
+                    placeholder="Digite sua senha"
+                    required
+                >
+            </div>
+
+            <button type="submit">Entrar</button>
+
+            <p id="mensagem"></p>
+
+        </form>
+
+        <div class="links-informacoes">
+            <a href="politica-privacidade.html">
+                Política de Privacidade
+            </a>
+
+            <a href="termos-uso.html">
+                Termos de Uso
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../js/login.js"></script>
+</body>
+</html>

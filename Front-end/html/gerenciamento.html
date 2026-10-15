@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistral - Grupos e Metas</title>
+    <link rel="stylesheet" href="../css/gerenciamento.css">
+</head>
+
+<body>
+
+<header class="cabecalho">
+
+    <div class="logo">
+        <h1>Mistral</h1>
+        <span>Grupos e Metas</span>
+    </div>
+
+    <div class="acoes-cabecalho">
+        <a href="index.html">Início</a>
+        <button id="botaoSair">Sair</button>
+    </div>
+
+</header>
+
+<main class="conteudo">
+
+    <section class="cabecalho-pagina">
+        <h2>Gerenciamento de grupos e metas</h2>
+        <p>
+            Cadastre grupos, produtos e defina as metas de produção.
+        </p>
+    </section>
+
+    <section class="area-formularios">
+
+        <div class="cartao">
+
+            <h3>Cadastrar grupo</h3>
+
+            <form id="formularioGrupo">
+
+                <div class="campo">
+                    <label for="nomeGrupo">Nome do grupo</label>
+                    <input
+                        type="text"
+                        id="nomeGrupo"
+                        placeholder="Digite o nome do grupo"
+                        required
+                    >
+                </div>
+
+                <button type="submit">Cadastrar grupo</button>
+
+                <p id="mensagemGrupo"></p>
+
+            </form>
+
+        </div>
+
+        <div class="cartao">
+
+            <h3>Cadastrar produto</h3>
+
+            <form id="formularioProduto">
+
+                <div class="campo">
+                    <label for="codigoProduto">Código</label>
+                    <input
+                        type="text"
+                        id="codigoProduto"
+                        placeholder="Ex.: P001"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="descricaoProduto">Descrição</label>
+                    <input
+                        type="text"
+                        id="descricaoProduto"
+                        placeholder="Ex.: Boleira 30cm"
+                        required
+                    >
+                </div>
+
+                <button type="submit">Cadastrar produto</button>
+
+                <p id="mensagemProduto"></p>
+
+            </form>
+
+        </div>
+
+        <div class="cartao">
+
+            <h3>Definir meta</h3>
+
+            <form id="formularioMeta">
+
+                <div class="campo">
+                    <label for="grupoMeta">Grupo</label>
+                    <select id="grupoMeta" required>
+                        <option value="">Selecione um grupo</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="produtoMeta">Produto</label>
+                    <select id="produtoMeta" required>
+                        <option value="">Selecione um produto</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="quantidadeMeta">Quantidade da meta</label>
+                    <input
+                        type="number"
+                        id="quantidadeMeta"
+                        min="1"
+                        placeholder="Ex.: 1000"
+                        required
+                    >
+                </div>
+
+                <button type="submit">Definir meta</button>
+
+                <p id="mensagemMeta"></p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <section class="cartao tabela-area">
+
+        <div class="titulo-tabela">
+            <div>
+                <h3>Metas cadastradas</h3>
+                <p>Consulte as metas definidas para cada grupo.</p>
+            </div>
+
+            <button id="botaoAtualizar">Atualizar</button>
+        </div>
+
+        <div class="tabela-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Grupo</th>
+                        <th>Produto</th>
+                        <th>Código</th>
+                        <th>Meta</th>
+                    </tr>
+                </thead>
+
+                <tbody id="listaMetas">
+                    <tr>
+                        <td colspan="4">
+                            Nenhuma meta carregada.
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <p id="mensagemLista"></p>
+
+    </section>
+
+</main>
+
+<script src="../js/gerenciamento.js"></script>
+
+</body>
+</html>

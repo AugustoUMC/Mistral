@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistral - Feriados</title>
+    <link rel="stylesheet" href="../css/feriados.css">
+</head>
+
+<body>
+
+<header class="cabecalho">
+
+    <div class="logo">
+        <h1>Mistral</h1>
+        <span>Feriados</span>
+    </div>
+
+    <div class="acoes-cabecalho">
+        <a href="index.html">Início</a>
+        <button id="botaoSair">Sair</button>
+    </div>
+
+</header>
+
+<main class="conteudo">
+
+    <section class="cabecalho-pagina">
+
+        <h2>Consulta de feriados</h2>
+
+        <p>
+            Consulte os feriados de um determinado ano.
+        </p>
+
+    </section>
+
+    <section class="cartao">
+
+        <form id="formularioFeriado">
+
+            <div class="campo">
+
+                <label for="ano">Ano</label>
+
+                <input
+                    type="number"
+                    id="ano"
+                    min="1900"
+                    max="2199"
+                    value="2026"
+                    required
+                >
+
+            </div>
+
+            <button type="submit">
+                Consultar feriados
+            </button>
+
+        </form>
+
+        <p id="mensagem"></p>
+
+    </section>
+
+    <section class="cartao tabela-area">
+
+        <div class="titulo-tabela">
+
+            <div>
+                <h3>Feriados</h3>
+
+                <p>
+                    Feriados encontrados para o ano informado.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="tabela-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Nome</th>
+                        <th>Tipo</th>
+                        <th>Dia da semana</th>
+                    </tr>
+                </thead>
+
+                <tbody id="listaFeriados">
+
+                    <tr>
+                        <td colspan="4">
+                            Nenhum feriado carregado.
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="../js/feriados.js"></script>
+
+</body>
+</html>
