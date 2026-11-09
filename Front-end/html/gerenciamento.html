@@ -1,16 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#15263E">
     <title>Mistral - Grupos e Metas</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
     <link rel="stylesheet" href="../css/gerenciamento.css">
 </head>
-
 <body>
-
 <header class="cabecalho">
-
     <div class="logo">
         <h1>Mistral</h1>
         <span>Grupos e Metas</span>
@@ -18,164 +21,267 @@
 
     <div class="acoes-cabecalho">
         <a href="index.html">Início</a>
-        <button id="botaoSair">Sair</button>
+        <button id="botaoSair" type="button">Sair</button>
     </div>
-
 </header>
 
-<main class="conteudo">
-
-    <section class="cabecalho-pagina">
-        <h2>Gerenciamento de grupos e metas</h2>
-        <p>
-            Cadastre grupos, produtos e defina as metas de produção.
-        </p>
+<main class="conteudo conteudo-gerenciamento">
+    <section class="cabecalho-gerenciamento">
+        <div>
+            <span class="sobretitulo-gerenciamento">CONFIGURAÇÃO DA PRODUÇÃO</span>
+            <h2>Grupos e Metas</h2>
+            <p>Organize os grupos de produção, mantenha o catálogo de produtos e defina as quantidades esperadas.</p>
+        </div>
     </section>
 
-    <section class="area-formularios">
-
-        <div class="cartao">
-
-            <h3>Cadastrar grupo</h3>
-
-            <form id="formularioGrupo">
-
-                <div class="campo">
-                    <label for="nomeGrupo">Nome do grupo</label>
-                    <input
-                        type="text"
-                        id="nomeGrupo"
-                        placeholder="Digite o nome do grupo"
-                        required
-                    >
+    <section class="gerenciamento-cadastros" aria-label="Cadastros básicos">
+        <article class="cadastro-bloco cadastro-grupo">
+            <div class="cadastro-bloco-cabecalho">
+                <span class="cadastro-icone cadastro-icone-grupo" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3.5" y="4" width="7" height="7" rx="1.5" />
+                        <rect x="13.5" y="4" width="7" height="7" rx="1.5" />
+                        <rect x="3.5" y="14" width="7" height="7" rx="1.5" />
+                        <path d="M15 17.5h5M17.5 15v5" />
+                    </svg>
+                </span>
+                <div>
+                    <span class="cadastro-categoria">ESTRUTURA</span>
+                    <h3>Novo grupo</h3>
+                    <p>Crie uma área de organização da produção.</p>
                 </div>
-
-                <button type="submit">Cadastrar grupo</button>
-
-                <p id="mensagemGrupo"></p>
-
-            </form>
-
-        </div>
-
-        <div class="cartao">
-
-            <h3>Cadastrar produto</h3>
-
-            <form id="formularioProduto">
-
-                <div class="campo">
-                    <label for="codigoProduto">Código</label>
-                    <input
-                        type="text"
-                        id="codigoProduto"
-                        placeholder="Ex.: P001"
-                        required
-                    >
-                </div>
-
-                <div class="campo">
-                    <label for="descricaoProduto">Descrição</label>
-                    <input
-                        type="text"
-                        id="descricaoProduto"
-                        placeholder="Ex.: Boleira 30cm"
-                        required
-                    >
-                </div>
-
-                <button type="submit">Cadastrar produto</button>
-
-                <p id="mensagemProduto"></p>
-
-            </form>
-
-        </div>
-
-        <div class="cartao">
-
-            <h3>Definir meta</h3>
-
-            <form id="formularioMeta">
-
-                <div class="campo">
-                    <label for="grupoMeta">Grupo</label>
-                    <select id="grupoMeta" required>
-                        <option value="">Selecione um grupo</option>
-                    </select>
-                </div>
-
-                <div class="campo">
-                    <label for="produtoMeta">Produto</label>
-                    <select id="produtoMeta" required>
-                        <option value="">Selecione um produto</option>
-                    </select>
-                </div>
-
-                <div class="campo">
-                    <label for="quantidadeMeta">Quantidade da meta</label>
-                    <input
-                        type="number"
-                        id="quantidadeMeta"
-                        min="1"
-                        placeholder="Ex.: 1000"
-                        required
-                    >
-                </div>
-
-                <button type="submit">Definir meta</button>
-
-                <p id="mensagemMeta"></p>
-
-            </form>
-
-        </div>
-
-    </section>
-
-    <section class="cartao tabela-area">
-
-        <div class="titulo-tabela">
-            <div>
-                <h3>Metas cadastradas</h3>
-                <p>Consulte as metas definidas para cada grupo.</p>
             </div>
 
-            <button id="botaoAtualizar">Atualizar</button>
-        </div>
+            <form id="formularioGrupo">
+                <div class="campo">
+                    <label for="nomeGrupo">Nome do grupo</label>
+                    <input type="text" id="nomeGrupo" placeholder="Digite o nome do grupo" required>
+                </div>
+                <button class="botao" type="submit">Cadastrar grupo</button>
+                <p id="mensagemGrupo" class="mensagem" aria-live="polite"></p>
+            </form>
+        </article>
 
-        <div class="tabela-container">
+        <article class="cadastro-bloco cadastro-produto">
+            <div class="cadastro-bloco-cabecalho">
+                <span class="cadastro-icone cadastro-icone-produto" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5z" />
+                        <path d="m4.3 7.7 7.7 4.4 7.7-4.4M12 12.1V21M8 5.2l8 4.6" />
+                    </svg>
+                </span>
+                <div>
+                    <span class="cadastro-categoria">CATÁLOGO</span>
+                    <h3>Novo produto</h3>
+                    <p>Inclua um produto que poderá ser associado às metas.</p>
+                </div>
+            </div>
 
-            <table>
+            <form id="formularioProduto">
+                <div class="campos campos-produto">
+                    <div class="campo">
+                        <label for="codigoProduto">Código</label>
+                        <input type="text" id="codigoProduto" placeholder="Ex.: P001" required>
+                    </div>
 
-                <thead>
-                    <tr>
-                        <th>Grupo</th>
-                        <th>Produto</th>
-                        <th>Código</th>
-                        <th>Meta</th>
-                    </tr>
-                </thead>
+                    <div class="campo">
+                        <label for="descricaoProduto">Descrição</label>
+                        <input type="text" id="descricaoProduto" placeholder="Ex.: Boleira 30cm" required>
+                    </div>
 
-                <tbody id="listaMetas">
-                    <tr>
-                        <td colspan="4">
-                            Nenhuma meta carregada.
-                        </td>
-                    </tr>
-                </tbody>
+                    <div class="campo campo-preco-produto">
+                        <label for="precoBrutoProduto">Valor bruto unitário (R$)</label>
+                        <input
+                            type="number"
+                            id="precoBrutoProduto"
+                            min="0"
+                            step="0.01"
+                            inputmode="decimal"
+                            placeholder="Ex.: 12,50"
+                        >
+                        <small class="ajuda-campo">Opcional. É o valor bruto informado para o produto, não o custo de fabricação. Deixe em branco quando ainda não estiver definido.</small>
+                    </div>
+                </div>
 
-            </table>
-
-        </div>
-
-        <p id="mensagemLista"></p>
-
+                <div class="cadastro-formulario-rodape">
+                    <button class="botao" type="submit">Cadastrar produto</button>
+                </div>
+                <p id="mensagemProduto" class="mensagem" aria-live="polite"></p>
+            </form>
+        </article>
     </section>
 
+    <section class="meta-destaque" aria-labelledby="tituloDefinirMeta">
+        <div class="meta-destaque-introducao">
+            <span class="meta-etapa">PLANEJAMENTO</span>
+            <h3 id="tituloDefinirMeta">Definir meta de produção</h3>
+            <p>Associe um grupo a um produto e informe a quantidade que deverá ser produzida.</p>
+        </div>
+
+        <form id="formularioMeta" class="formulario-meta">
+            <div class="campo">
+                <label for="grupoMeta">Grupo</label>
+                <select id="grupoMeta" required>
+                    <option value="">Selecione um grupo</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="produtoMeta">Produto</label>
+                <select id="produtoMeta" required>
+                    <option value="">Selecione um produto</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="quantidadeMeta">Quantidade da meta</label>
+                <input type="number" id="quantidadeMeta" min="1" placeholder="Ex.: 1000" required>
+            </div>
+
+            <div class="meta-formulario-acao">
+                <button class="botao" type="submit">Definir meta</button>
+            </div>
+
+            <p id="mensagemMeta" class="mensagem" aria-live="polite"></p>
+        </form>
+    </section>
+
+    <div id="mensagemLista" class="notificacao" role="alert" aria-live="assertive" hidden></div>
+
+    <section class="secao-registros-gerenciamento">
+        <div class="cabecalho-registros">
+            <div>
+                <span class="sobretitulo-gerenciamento">BASE CADASTRAL</span>
+                <h3>Registros existentes</h3>
+                <p>Consulte os itens cadastrados e gerencie seus vínculos.</p>
+            </div>
+            <button id="botaoAtualizar" class="botao-secundario" type="button">
+                Atualizar dados
+            </button>
+        </div>
+
+        <div class="gerenciamento-listas">
+            <section class="painel-lista painel-lista-grupos">
+                <div class="painel-lista-cabecalho">
+                    <span class="painel-lista-marcador marcador-grupo" aria-hidden="true"></span>
+                    <div>
+                        <h4>Grupos cadastrados</h4>
+                        <p>Grupos e situação atual.</p>
+                    </div>
+                </div>
+
+                <div class="tabela-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Grupo</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaGrupos">
+                            <tr><td colspan="4">Carregando grupos...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="painel-lista painel-lista-produtos">
+                <div class="painel-lista-cabecalho">
+                    <span class="painel-lista-marcador marcador-produto" aria-hidden="true"></span>
+                    <div>
+                        <h4>Produtos cadastrados</h4>
+                        <p>Valores brutos unitários e ações disponíveis.</p>
+                    </div>
+                </div>
+
+                <div class="tabela-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Código</th>
+                                <th>Descrição</th>
+                                <th>Valor bruto unitário</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaProdutos">
+                            <tr><td colspan="5">Carregando produtos...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="painel-lista painel-lista-metas">
+                <div class="painel-lista-cabecalho">
+                    <span class="painel-lista-marcador marcador-meta" aria-hidden="true"></span>
+                    <div>
+                        <h4>Metas cadastradas</h4>
+                        <p>Relação entre grupos, produtos e quantidades definidas.</p>
+                    </div>
+                </div>
+
+                <div class="tabela-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Grupo</th>
+                                <th>Produto</th>
+                                <th>Código</th>
+                                <th>Meta</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaMetas">
+                            <tr><td colspan="5">Carregando metas...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </section>
 </main>
 
-<script src="../js/gerenciamento.js"></script>
+<dialog id="dialogPrecoProduto" class="dialog-preco" aria-labelledby="tituloDialogPreco">
+    <div class="dialog-preco-conteudo">
+        <div class="dialog-preco-cabecalho">
+            <div>
+                <span class="dialog-preco-etiqueta">CATÁLOGO DE PRODUTOS</span>
+                <h3 id="tituloDialogPreco">Valor bruto unitário</h3>
+                <p id="identificacaoProdutoPreco"></p>
+            </div>
+            <button id="botaoFecharDialogPreco" class="botao-fechar-dialog" type="button">Fechar</button>
+        </div>
 
+        <form id="formularioPrecoProduto">
+            <div class="campo">
+                <label for="precoBrutoEdicao">Valor bruto unitário (R$)</label>
+                <input
+                    type="number"
+                    id="precoBrutoEdicao"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="Ex.: 12,50"
+                >
+                <small class="ajuda-campo">
+                    Este é o valor bruto informado para o produto, não o custo de fabricação. Informe um valor maior ou igual a zero; deixe em branco para remover o valor cadastrado.
+                </small>
+            </div>
+
+            <p id="mensagemPrecoProduto" class="mensagem" role="status" aria-live="polite"></p>
+
+            <div class="acoes-dialog-preco">
+                <button id="botaoSalvarPreco" class="botao" type="submit">Salvar valor</button>
+                <button id="botaoCancelarPreco" class="botao-secundario-dialog" type="button">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</dialog>
+
+<script src="../js/gerenciamento.js"></script>
+<script src="../js/layout.js"></script>
 </body>
 </html>

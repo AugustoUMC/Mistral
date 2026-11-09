@@ -1,4 +1,3 @@
-
 package com.tcc.sistema_producao.entidade;
 
 import jakarta.persistence.*;
@@ -6,6 +5,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -43,4 +43,7 @@ public class RegistroProducao {
     @Min(value = 0, message = "A quantidade de peças defeituosas não pode ser negativa")
     @Column(name = "quantidade_defeituosa", nullable = false)
     private Integer quantidadeDefeituosa = 0;
+
+    @Column(name = "preco_bruto_unitario", precision = 12, scale = 2)
+    private BigDecimal precoBrutoUnitario;
 }

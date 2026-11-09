@@ -1,145 +1,379 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
-    color: #1f2937;
-    min-height: 100vh;
-}
 
 .pagina-login {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(390px, 0.82fr);
+    align-items: stretch;
+    gap: clamp(28px, 5vw, 76px);
+    width: min(100%, 1440px);
     min-height: 100vh;
+    margin: 0 auto;
+    padding: clamp(20px, 4vw, 54px);
+    background: var(--cor-fundo);
+}
+
+.pagina-login .login-apresentacao {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 620px;
+    padding: clamp(30px, 4vw, 55px);
+    overflow: hidden;
+    border: 1px solid #203C5D;
+    border-radius: 20px;
+    color: #FFFFFF;
+    background: linear-gradient(145deg, #15263E 0%, #1A3656 60%, #21466B 100%);
+}
+
+.pagina-login .login-apresentacao::before,
+.pagina-login .login-apresentacao::after {
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.pagina-login .login-apresentacao::before {
+    top: -150px;
+    right: -110px;
+}
+
+.pagina-login .login-apresentacao::after {
+    right: 8%;
+    bottom: -240px;
+    width: 440px;
+    height: 440px;
+}
+
+.pagina-login .login-marca {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
+    gap: 13px;
+}
+
+.pagina-login .login-marca-simbolo {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    padding: 20px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 13px;
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.09);
 }
 
-.cartao-login {
+.pagina-login .login-marca-simbolo svg {
+    width: 27px;
+    height: 27px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.65;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.pagina-login .login-marca strong {
+    display: block;
+    color: #FFFFFF;
+    font-size: 25px;
+    line-height: 1.15;
+}
+
+.pagina-login .login-marca small {
+    display: block;
+    margin-top: 4px;
+    color: #C1D1E4;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.pagina-login .login-apresentacao-texto {
+    position: relative;
+    z-index: 1;
+    max-width: 540px;
+    margin: 50px 0;
+}
+
+.pagina-login .login-apresentacao-etiqueta {
+    display: inline-flex;
+    padding: 6px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    color: #D7E6F8;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.pagina-login .login-apresentacao-texto h2 {
+    margin: 20px 0 13px;
+    color: #FFFFFF;
+    font-size: clamp(30px, 3.2vw, 43px);
+    line-height: 1.13;
+}
+
+.pagina-login .login-apresentacao-texto p {
+    max-width: 460px;
+    margin: 0;
+    color: #D2DEEB;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.pagina-login .login-apresentacao-rodape {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    color: #B9C9DC;
+    font-size: 11px;
+}
+
+.pagina-login .login-apresentacao-rodape span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #27B59B;
+    box-shadow: 0 0 0 4px rgba(39, 181, 155, 0.13);
+}
+
+.pagina-login .cartao-login {
+    align-self: center;
+    justify-self: center;
     width: 100%;
-    max-width: 400px;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 35px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    max-width: 440px;
+    padding: clamp(28px, 3vw, 42px);
+    border: 1px solid var(--cor-borda);
+    border-radius: 17px;
+    background: var(--cor-superficie);
+    box-shadow: var(--sombra-media);
 }
 
-.cabecalho {
-    text-align: center;
-    margin-bottom: 30px;
+.pagina-login .cabecalho {
+    margin-bottom: 29px;
 }
 
-.cabecalho h1 {
-    font-size: 32px;
-    color: #1f2937;
-    margin-bottom: 6px;
-}
-
-.cabecalho p {
-    font-size: 14px;
-    color: #6b7280;
-}
-
-.campo {
-    margin-bottom: 18px;
-}
-
-.campo label {
+.pagina-login .login-etiqueta {
     display: block;
     margin-bottom: 8px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #374151;
+    color: var(--cor-azul);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-.campo input {
+.pagina-login .cabecalho h1 {
+    margin: 0 0 7px;
+    color: var(--cor-marinho);
+    font-size: 27px;
+    line-height: 1.2;
+}
+
+.pagina-login .cabecalho p {
+    margin: 0;
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-secundario);
+    line-height: 1.55;
+}
+
+.pagina-login .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 19px;
+}
+
+.pagina-login .campo label {
+    color: var(--cor-texto);
+    font-size: var(--texto-secundario);
+    font-weight: 600;
+}
+
+.pagina-login .campo input {
     width: 100%;
-    height: 44px;
-    padding: 0 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    background: #ffffff;
-    color: #1f2937;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    min-height: 46px;
+    padding: 10px 13px;
+    border: 1px solid var(--cor-borda-forte);
+    border-radius: var(--raio-padrao);
+    color: var(--cor-texto);
+    background: #FFFFFF;
+    font: inherit;
+    transition: border-color var(--transicao-padrao), box-shadow var(--transicao-padrao);
 }
 
-.campo input::placeholder {
-    color: #9ca3af;
+.pagina-login .campo input::placeholder {
+    color: var(--cor-texto-suave);
 }
 
-.campo input:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+.pagina-login .campo input:focus {
+    border-color: var(--cor-azul);
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(49, 105, 217, 0.13);
 }
 
-form button {
+.pagina-login .campo-senha-controle {
+    position: relative;
+    display: flex;
+    align-items: center;
     width: 100%;
-    height: 44px;
-    border: none;
-    border-radius: 8px;
-    background: #2563eb;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: bold;
+}
+
+.pagina-login .campo-senha-controle input {
+    padding-right: 48px;
+}
+
+.pagina-login .botao-olho {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    transform: translateY(-50%);
+    border: 0;
+    border-radius: var(--raio-pequeno);
+    color: var(--cor-texto-secundario);
+    background: transparent;
     cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
 }
 
-form button:hover {
-    background: #1d4ed8;
+.pagina-login .botao-olho:hover {
+    color: var(--cor-azul);
+    background: var(--cor-superficie-suave);
 }
 
-form button:active {
+.pagina-login .botao-olho:focus-visible {
+    outline: 2px solid var(--cor-azul);
+    outline-offset: 2px;
+}
+
+.pagina-login .botao-olho svg {
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.pagina-login form > button[type="submit"] {
+    width: 100%;
+    min-height: 46px;
+    margin-top: 5px;
+    border: 1px solid var(--cor-azul);
+    border-radius: var(--raio-padrao);
+    color: #FFFFFF;
+    background: var(--cor-azul);
+    font-size: var(--texto-secundario);
+    font-weight: 700;
+    transition: background var(--transicao-padrao), border-color var(--transicao-padrao), transform var(--transicao-padrao);
+}
+
+.pagina-login form > button[type="submit"]:hover {
+    border-color: var(--cor-azul-hover);
+    background: var(--cor-azul-hover);
+}
+
+.pagina-login form > button[type="submit"]:active {
     transform: translateY(1px);
 }
 
-#mensagem {
+.pagina-login #mensagem {
     min-height: 20px;
-    margin-top: 12px;
-    text-align: center;
-    font-size: 13px;
-    color: #6b7280;
+    margin: 13px 0 0;
+    color: var(--cor-erro);
+    font-size: 12px;
+    line-height: 1.5;
 }
 
-.links-informacoes {
+.pagina-login .links-informacoes {
     display: flex;
-    justify-content: center;
-    gap: 18px;
-    margin-top: 22px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    margin-top: 24px;
     padding-top: 18px;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid var(--cor-borda);
 }
 
-.links-informacoes a {
-    text-decoration: none;
-    color: #2563eb;
-    font-size: 13px;
+.pagina-login .links-informacoes a {
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
 }
 
-.links-informacoes a:hover {
-    color: #1d4ed8;
+.pagina-login .links-informacoes a:hover {
+    color: var(--cor-azul);
     text-decoration: underline;
 }
 
-@media (max-width: 450px) {
-    .cartao-login {
-        padding: 25px;
+@media (max-width: 850px) {
+    .pagina-login {
+        grid-template-columns: minmax(0, 0.85fr) minmax(340px, 1fr);
+        gap: 22px;
+        padding: 20px;
     }
 
-    .cabecalho h1 {
-        font-size: 28px;
+    .pagina-login .login-apresentacao {
+        min-height: 570px;
+        padding: 28px;
+    }
+}
+
+@media (max-width: 680px) {
+    .pagina-login {
+        grid-template-columns: 1fr;
+        gap: 17px;
+        padding: 14px;
     }
 
-    .links-informacoes {
+    .pagina-login .login-apresentacao {
+        min-height: 0;
+        padding: 22px;
+        border-radius: 15px;
+    }
+
+    .pagina-login .login-apresentacao-texto {
+        margin: 32px 0;
+    }
+
+    .pagina-login .login-apresentacao-texto h2 {
+        max-width: 440px;
+        margin-top: 13px;
+        font-size: 27px;
+    }
+
+    .pagina-login .login-apresentacao-texto p {
+        font-size: 13px;
+    }
+
+    .pagina-login .login-apresentacao-rodape {
+        padding-top: 13px;
+    }
+
+    .pagina-login .cartao-login {
+        max-width: none;
+        padding: 25px 21px;
+    }
+}
+
+@media (max-width: 380px) {
+    .pagina-login .links-informacoes {
         flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        align-items: flex-start;
     }
 }

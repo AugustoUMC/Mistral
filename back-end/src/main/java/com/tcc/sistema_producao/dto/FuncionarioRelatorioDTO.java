@@ -1,6 +1,7 @@
 package com.tcc.sistema_producao.dto;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public record FuncionarioRelatorioDTO(
         Long id,
@@ -10,6 +11,7 @@ public record FuncionarioRelatorioDTO(
         BigDecimal salario,
         Boolean ativo,
         Boolean acessoSistema,
-        String perfil
+        String perfil,
+        List<String> gruposAtuais
 ) {
 }

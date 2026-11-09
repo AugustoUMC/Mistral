@@ -1,4 +1,3 @@
-
 package com.tcc.sistema_producao.dto;
 
 import java.math.BigDecimal;
@@ -14,6 +13,7 @@ public record RegistroProducaoRespostaDTO(
         LocalDate dataProducao,
         Integer quantidadeProduzida,
         Integer quantidadeDefeituosa,
+        BigDecimal precoBrutoUnitario,
         BigDecimal percentualDefeituoso
 ) {
 }
