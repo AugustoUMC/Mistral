@@ -1,0 +1,956 @@
+
+.mistral-app .conteudo-funcionarios {
+    max-width: 1600px;
+    padding: 30px 36px 48px;
+}
+
+.mistral-app .cabecalho-funcionarios {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.mistral-app .titulo-funcionarios .sobretitulo,
+.mistral-app .cadastro-introducao .sobretitulo {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--cor-azul);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+}
+
+.mistral-app .titulo-funcionarios h2 {
+    margin: 0 0 6px;
+    color: var(--cor-marinho);
+    font-size: 29px;
+    line-height: 1.2;
+}
+
+.mistral-app .titulo-funcionarios p {
+    max-width: 680px;
+    margin: 0;
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+.mistral-app .contexto-funcionarios {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+    padding: 9px 13px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 999px;
+    color: var(--cor-texto-secundario);
+    background: #FFFFFF;
+    font-size: var(--texto-pequeno);
+    font-weight: 600;
+}
+
+.mistral-app .contexto-indicador {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--cor-verde-azulado);
+    box-shadow: 0 0 0 3px rgba(15, 139, 120, 0.12);
+}
+
+.mistral-app .indicadores-funcionarios {
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr 1.18fr;
+    gap: 14px;
+    margin: 0 0 22px;
+}
+
+.mistral-app .indicadores-funcionarios .resumo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 142px;
+    padding: 18px 21px;
+    overflow: hidden;
+    border: 1px solid var(--cor-borda);
+    border-radius: 13px;
+    background: #FFFFFF;
+    box-shadow: var(--sombra-leve);
+}
+
+.mistral-app .indicador-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 12px;
+}
+
+.mistral-app .indicador-cabecalho span:first-child {
+    color: var(--cor-texto-secundario);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.9px;
+}
+
+.mistral-app .indicador-sinal {
+    color: #A5B2C3;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.mistral-app .indicadores-funcionarios .resumo strong {
+    display: block;
+    margin-top: 10px;
+    color: var(--cor-marinho);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.mistral-app .indicadores-funcionarios .resumo p {
+    margin: 5px 0 0;
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+}
+
+.mistral-app .indicadores-funcionarios .indicador-total {
+    border-color: var(--cor-marinho);
+    background: var(--cor-marinho);
+}
+
+.mistral-app .indicador-total .indicador-cabecalho span:first-child,
+.mistral-app .indicador-total .indicador-sinal {
+    color: #B9C9DE;
+}
+
+.mistral-app .indicadores-funcionarios .indicador-total strong {
+    color: #FFFFFF;
+}
+
+.mistral-app .indicadores-funcionarios .indicador-total p {
+    color: #D0DCEC;
+}
+
+.mistral-app .indicadores-funcionarios .indicador-ativos {
+    border-top: 3px solid var(--cor-verde-azulado);
+}
+
+.mistral-app .indicadores-funcionarios .indicador-ativos strong {
+    color: var(--cor-verde-azulado);
+}
+
+.mistral-app .indicadores-funcionarios .indicador-salarios {
+    border-top: 3px solid var(--cor-azul);
+}
+
+.mistral-app .indicadores-funcionarios .indicador-salarios strong {
+    font-size: 25px;
+}
+
+.mistral-app .painel-cadastro {
+    margin: 0 0 22px;
+    overflow: hidden;
+    border: 1px solid var(--cor-borda);
+    border-radius: 13px;
+    background: #FFFFFF;
+    box-shadow: var(--sombra-leve);
+}
+
+.mistral-app .painel-cadastro > .cadastro-resumo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 82px;
+    padding: 17px 21px;
+    cursor: pointer;
+    list-style: none;
+    transition: background var(--transicao-padrao);
+}
+
+.mistral-app .painel-cadastro > .cadastro-resumo::-webkit-details-marker,
+.mistral-app .endereco-opcional > summary::-webkit-details-marker {
+    display: none;
+}
+
+.mistral-app .painel-cadastro > .cadastro-resumo::marker,
+.mistral-app .endereco-opcional > summary::marker {
+    content: "";
+}
+
+.mistral-app .painel-cadastro > .cadastro-resumo:hover {
+    background: #FAFBFE;
+}
+
+.mistral-app .cadastro-simbolo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    color: var(--cor-azul);
+    background: var(--cor-info-fundo);
+    font-size: 25px;
+    font-weight: 400;
+    transition: transform var(--transicao-padrao);
+}
+
+.mistral-app .painel-cadastro[open] .cadastro-simbolo {
+    transform: rotate(45deg);
+}
+
+.mistral-app .cadastro-texto {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.mistral-app .cadastro-texto strong {
+    color: var(--cor-marinho);
+    font-size: 15px;
+}
+
+.mistral-app .cadastro-texto small {
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+    line-height: 1.45;
+}
+
+.mistral-app .cadastro-acao {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    border: 1px solid #C9D8F6;
+    border-radius: var(--raio-padrao);
+    color: var(--cor-azul);
+    background: #F5F8FF;
+    font-size: var(--texto-pequeno);
+    font-weight: 700;
+}
+
+.mistral-app .painel-cadastro[open] .cadastro-acao {
+    color: var(--cor-texto-secundario);
+    border-color: var(--cor-borda);
+    background: var(--cor-superficie-suave);
+}
+
+.mistral-app .cadastro-conteudo {
+    padding: 0 25px 25px;
+    border-top: 1px solid var(--cor-borda);
+}
+
+.mistral-app .cadastro-introducao {
+    padding: 24px 0 19px;
+}
+
+.mistral-app .cadastro-introducao h3 {
+    margin: 0 0 5px;
+    color: var(--cor-marinho);
+    font-size: 19px;
+}
+
+.mistral-app .cadastro-introducao p {
+    margin: 0;
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-secundario);
+    line-height: 1.5;
+}
+
+.mistral-app .form-bloco {
+    padding: 19px 0 8px;
+    border-top: 1px solid #EDF1F6;
+}
+
+.mistral-app .form-bloco-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.mistral-app .form-etapa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #D9E4F8;
+    border-radius: 9px;
+    color: var(--cor-azul);
+    background: #F3F7FF;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.mistral-app .form-bloco-cabecalho h4 {
+    margin: 0 0 3px;
+    color: var(--cor-marinho);
+    font-size: 14px;
+}
+
+.mistral-app .form-bloco-cabecalho p {
+    margin: 0;
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+}
+
+.mistral-app #painelFuncionarios .campos-profissionais {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0 16px;
+}
+
+.mistral-app #painelFuncionarios .campos-acesso {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 16px;
+}
+
+.mistral-app #painelFuncionarios .campo {
+    min-width: 0;
+    margin-bottom: 14px;
+}
+
+.mistral-app #painelFuncionarios .campo label {
+    margin-bottom: 6px;
+    font-size: 12px;
+}
+
+.mistral-app #painelFuncionarios .campo input,
+.mistral-app #painelFuncionarios .campo select {
+    min-height: 43px;
+    border-color: #D4DDE8;
+    background: #FFFFFF;
+}
+
+.mistral-app #painelFuncionarios .campo input:hover:not(:disabled),
+.mistral-app #painelFuncionarios .campo select:hover:not(:disabled) {
+    border-color: #AEBED1;
+}
+
+.mistral-app #painelFuncionarios .campo input:disabled {
+    color: var(--cor-texto-suave);
+    background: #F4F6F9;
+}
+
+.mistral-app .controle-senha {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.mistral-app .controle-senha input {
+    padding-right: 48px;
+}
+
+.mistral-app .botao-olho {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    transform: translateY(-50%);
+    border: 0;
+    border-radius: var(--raio-pequeno);
+    color: var(--cor-texto-secundario);
+    background: transparent;
+}
+
+.mistral-app .botao-olho:hover:not(:disabled) {
+    color: var(--cor-azul);
+    background: var(--cor-superficie-suave);
+}
+
+.mistral-app .botao-olho:focus-visible {
+    outline: 2px solid var(--cor-azul);
+    outline-offset: 1px;
+}
+
+.mistral-app .botao-olho svg {
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.mistral-app .endereco-opcional {
+    margin-top: 9px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 11px;
+    background: #FAFBFD;
+}
+
+.mistral-app .endereco-opcional > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    min-height: 56px;
+    padding: 12px 16px;
+    color: var(--cor-marinho);
+    cursor: pointer;
+    list-style: none;
+}
+
+.mistral-app .endereco-opcional > summary span {
+    font-size: var(--texto-secundario);
+    font-weight: 700;
+}
+
+.mistral-app .endereco-opcional > summary small {
+    padding: 4px 8px;
+    border-radius: 999px;
+    color: var(--cor-texto-secundario);
+    background: #EDF1F6;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.mistral-app .endereco-opcional[open] > summary {
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.mistral-app .secao-endereco {
+    margin: 0;
+    padding: 18px 16px 5px;
+    border: 0;
+}
+
+.mistral-app .secao-endereco .descricao {
+    margin-bottom: 14px;
+    font-size: var(--texto-pequeno);
+}
+
+.mistral-app .secao-endereco .campos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 16px;
+}
+
+.mistral-app .formulario-acoes {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid #EDF1F6;
+}
+
+.mistral-app .formulario-acoes > .botao {
+    min-width: 190px;
+}
+
+.mistral-app .formulario-acoes .mensagem {
+    flex: 1;
+    margin: 0;
+}
+
+.mistral-app .restrito {
+    padding: 24px;
+    border: 1px solid #F0C7CA;
+    border-left: 4px solid var(--cor-erro);
+    border-radius: var(--raio-padrao);
+    color: #8E3038;
+    background: #FFFFFF;
+    line-height: 1.6;
+}
+
+.mistral-app .restrito h3 {
+    margin: 0 0 7px;
+    color: #8E3038;
+}
+
+.mistral-app .restrito p {
+    margin: 0;
+}
+
+.mistral-app .cartao-lista-funcionarios {
+    margin-top: 0;
+    padding: 24px;
+}
+
+.mistral-app .cartao-lista-funcionarios .acoes-tabela {
+    align-items: center;
+    margin-bottom: 19px;
+}
+
+.mistral-app .cartao-lista-funcionarios .acoes-tabela h3 {
+    margin: 0 0 5px;
+    color: var(--cor-marinho);
+    font-size: 18px;
+}
+
+.mistral-app .cartao-lista-funcionarios .acoes-tabela .descricao {
+    margin: 0;
+    font-size: var(--texto-pequeno);
+}
+
+.mistral-app #botaoAtualizar {
+    flex-shrink: 0;
+}
+
+.mistral-app .tabela-funcionarios-container {
+    overflow-x: auto;
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+}
+
+.mistral-app .tabela-funcionarios {
+    width: 100%;
+    min-width: 1180px;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: auto;
+}
+
+.mistral-app .tabela-funcionarios caption.texto-acessivel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.mistral-app .tabela-funcionarios thead {
+    background: #F3F6FA;
+}
+
+.mistral-app .tabela-funcionarios th {
+    padding: 13px 12px;
+    border-bottom: 1px solid var(--cor-borda);
+    color: #53647A;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.35px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.mistral-app .tabela-funcionarios td {
+    padding: 12px;
+    border-bottom: 1px solid #EDF1F5;
+    color: var(--cor-texto);
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.mistral-app .tabela-funcionarios tbody tr:nth-child(even) {
+    background: #FBFCFE;
+}
+
+.mistral-app .tabela-funcionarios tbody tr:hover {
+    background: #F1F6FF;
+}
+
+.mistral-app .tabela-funcionarios tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.mistral-app .tabela-funcionarios th:first-child,
+.mistral-app .tabela-funcionarios td:first-child {
+    width: 72px;
+    text-align: center;
+}
+
+.mistral-app .tabela-funcionarios td:nth-child(2) {
+    min-width: 170px;
+    color: var(--cor-marinho);
+    font-weight: 600;
+}
+
+.mistral-app .tabela-funcionarios td:nth-child(3) {
+    font-variant-numeric: tabular-nums;
+}
+
+.mistral-app .tabela-funcionarios td:nth-child(6) {
+    color: var(--cor-marinho);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.mistral-app .tabela-funcionarios td:nth-child(7),
+.mistral-app .tabela-funcionarios td:nth-child(8),
+.mistral-app .tabela-funcionarios td:nth-child(9) {
+    text-align: center;
+}
+
+.mistral-app .funcionarioSelecionado {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--cor-azul);
+    cursor: pointer;
+}
+
+.mistral-app .acoes-funcionario {
+    min-width: 142px;
+    vertical-align: top;
+}
+
+.mistral-app .acoes-funcionario button {
+    display: block;
+    width: 100%;
+    min-height: 31px;
+    margin: 0 0 6px;
+    padding: 5px 8px;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.mistral-app .botao-endereco {
+    border: 1px solid #D6E2F7;
+    color: #2859AE;
+    background: #F4F7FE;
+}
+
+.mistral-app .botao-endereco:hover:not(:disabled) {
+    border-color: #B7CBF0;
+    background: #EAF0FC;
+}
+
+.mistral-app .botao-grupos {
+    border: 1px solid #CDE8E1;
+    color: #087663;
+    background: #F0F8F5;
+}
+
+.mistral-app .botao-grupos:hover:not(:disabled) {
+    border-color: #A8D8CC;
+    background: #E3F3EE;
+}
+
+.mistral-app .botao-inativar {
+    border: 1px solid #F0D0D2;
+    color: #B23840;
+    background: #FFF5F5;
+}
+
+.mistral-app .botao-inativar:hover:not(:disabled) {
+    border-color: #E7B5B9;
+    background: #FDEBEC;
+}
+
+.mistral-app .estado-inativo {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--cor-erro);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.mistral-app .estado-inativo::before {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--cor-erro);
+    content: "";
+}
+
+.mistral-app .acoes-salarios {
+    justify-content: flex-start;
+    margin: 17px 0 0;
+}
+
+.mistral-app #botaoSomarSelecionados {
+    min-height: 38px;
+    padding: 8px 14px;
+    font-size: var(--texto-pequeno);
+}
+
+.mistral-app .resultado-selecao:not(:empty) {
+    margin-top: 12px;
+    padding: 12px 14px;
+    border: 1px solid #D6E2F7;
+    border-radius: 9px;
+    color: var(--cor-marinho);
+    background: #F4F7FE;
+    font-size: var(--texto-secundario);
+}
+
+.mistral-app .dialog-grupos {
+    width: min(700px, calc(100% - 28px));
+    max-height: 88vh;
+    padding: 0;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-grande);
+    background: #FFFFFF;
+    box-shadow: var(--sombra-elevada);
+}
+
+.mistral-app .dialog-grupos::backdrop {
+    background: rgba(15, 29, 48, 0.55);
+}
+
+.mistral-app .dialog-grupos .dialog-conteudo {
+    max-height: 88vh;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.mistral-app .dialog-cabecalho {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 16px;
+}
+
+.mistral-app .dialog-cabecalho h3 {
+    margin: 0 0 5px;
+}
+
+.mistral-app .dialog-cabecalho p,
+.mistral-app .dialog-ajuda {
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-secundario);
+    line-height: 1.5;
+}
+
+.mistral-app .dialog-secao {
+    margin-top: 22px;
+}
+
+.mistral-app .dialog-secao h4 {
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.mistral-app .lista-grupos-disponiveis {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.mistral-app .opcao-grupo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-padrao);
+    color: var(--cor-texto);
+    background: #FFFFFF;
+    font-size: var(--texto-secundario);
+    cursor: pointer;
+}
+
+.mistral-app .opcao-grupo input {
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    accent-color: var(--cor-azul);
+}
+
+.mistral-app .opcao-grupo:has(input:disabled) {
+    color: var(--cor-texto-secundario);
+    background: var(--cor-superficie-suave);
+    cursor: not-allowed;
+}
+
+.mistral-app .historico-grupos {
+    display: grid;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.mistral-app .historico-grupos li {
+    display: grid;
+    gap: 5px;
+    padding: 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-padrao);
+}
+
+.mistral-app .historico-grupos li strong {
+    color: var(--cor-marinho);
+    font-size: var(--texto-secundario);
+}
+
+.mistral-app .historico-grupos li span {
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+}
+
+.mistral-app .dialog-acoes {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.mistral-app .dialog-acoes button {
+    min-width: 130px;
+}
+
+@media (max-width: 1100px) {
+    .mistral-app .conteudo-funcionarios {
+        padding: 26px 24px 40px;
+    }
+
+    .mistral-app .indicadores-funcionarios {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .mistral-app #painelFuncionarios .campos-profissionais {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mistral-app #painelFuncionarios .campos-acesso,
+    .mistral-app .secao-endereco .campos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .mistral-app .cabecalho-funcionarios {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .mistral-app .indicadores-funcionarios {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .mistral-app .indicadores-funcionarios .indicador-total {
+        grid-column: 1 / -1;
+    }
+
+    .mistral-app .cartao-lista-funcionarios {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 580px) {
+    .mistral-app .conteudo-funcionarios {
+        padding: 22px 14px 34px;
+    }
+
+    .mistral-app .titulo-funcionarios h2 {
+        font-size: 25px;
+    }
+
+    .mistral-app .indicadores-funcionarios {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .mistral-app .indicadores-funcionarios .indicador-total {
+        grid-column: auto;
+    }
+
+    .mistral-app .indicadores-funcionarios .resumo {
+        min-height: 118px;
+    }
+
+    .mistral-app .painel-cadastro > .cadastro-resumo {
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .mistral-app .cadastro-simbolo {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .mistral-app .cadastro-acao {
+        display: none;
+    }
+
+    .mistral-app .cadastro-conteudo {
+        padding: 0 16px 18px;
+    }
+
+    .mistral-app #painelFuncionarios .campos-profissionais,
+    .mistral-app #painelFuncionarios .campos-acesso,
+    .mistral-app .secao-endereco .campos {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .mistral-app .formulario-acoes {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .mistral-app .formulario-acoes > .botao,
+    .mistral-app .cartao-lista-funcionarios #botaoAtualizar,
+    .mistral-app #botaoSomarSelecionados {
+        width: 100%;
+    }
+
+    .mistral-app .cartao-lista-funcionarios .acoes-tabela {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .mistral-app .acoes-salarios {
+        align-items: stretch;
+    }
+
+    .mistral-app .lista-grupos-disponiveis {
+        grid-template-columns: 1fr;
+    }
+
+    .mistral-app .dialog-grupos .dialog-conteudo {
+        padding: 18px;
+    }
+
+    .mistral-app .dialog-cabecalho,
+    .mistral-app .dialog-acoes {
+        flex-direction: column;
+    }
+
+    .mistral-app .dialog-acoes button {
+        width: 100%;
+    }
+}
+
+@media print {
+    .mistral-app .cabecalho-funcionarios,
+    .mistral-app .painel-cadastro,
+    .mistral-app .acoes-tabela,
+    .mistral-app .acoes-funcionario,
+    .mistral-app .acoes-salarios {
+        display: none !important;
+    }
+
+    .mistral-app .conteudo-funcionarios {
+        max-width: none;
+        padding: 0;
+    }
+
+    .mistral-app .cartao-lista-funcionarios {
+        border: 0;
+        box-shadow: none;
+    }
+
+    .mistral-app .tabela-funcionarios {
+        min-width: 0;
+    }
+}

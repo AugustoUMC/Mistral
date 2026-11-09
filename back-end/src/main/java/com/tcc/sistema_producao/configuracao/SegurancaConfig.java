@@ -1,17 +1,25 @@
-
 package com.tcc.sistema_producao.configuracao;
 
 import com.tcc.sistema_producao.servico.FuncionarioDetalhesServico;
+
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import org.springframework.http.HttpMethod;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
 import org.springframework.security.web.SecurityFilterChain;
+
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -23,7 +31,9 @@ public class SegurancaConfig {
 
     private final JwtAutenticacaoFiltro jwtAutenticacaoFiltro;
 
-    public SegurancaConfig(JwtAutenticacaoFiltro jwtAutenticacaoFiltro) {
+    public SegurancaConfig(
+            JwtAutenticacaoFiltro jwtAutenticacaoFiltro) {
+
         this.jwtAutenticacaoFiltro = jwtAutenticacaoFiltro;
     }
 
@@ -45,8 +55,27 @@ public class SegurancaConfig {
         return provider::authenticate;
     }
 
+    /*
+     * O filtro JWT será executado exclusivamente dentro da cadeia
+     * do Spring Security, evitando seu registro independente
+     * no servlet container.
+     */
+    @Bean
+    public FilterRegistrationBean<JwtAutenticacaoFiltro>
+    jwtAutenticacaoFiltroRegistration() {
+
+        FilterRegistrationBean<JwtAutenticacaoFiltro> registration =
+                new FilterRegistrationBean<>();
+
+        registration.setFilter(jwtAutenticacaoFiltro);
+        registration.setEnabled(false);
+
+        return registration;
+    }
+
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
+
         CorsConfiguration configuracao = new CorsConfiguration();
 
         configuracao.setAllowedOrigins(List.of(
@@ -81,13 +110,19 @@ public class SegurancaConfig {
 
         http
                 .csrf(csrf -> csrf.disable())
+
                 .cors(cors -> {})
+
                 .formLogin(form -> form.disable())
+
                 .httpBasic(basic -> basic.disable())
+
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(
                                 SessionCreationPolicy.STATELESS
-                        ))
+                        )
+                )
+
                 .authorizeHttpRequests(auth -> auth
 
                         .requestMatchers(
@@ -133,15 +168,47 @@ public class SegurancaConfig {
                                 "/metas/**"
                         ).hasRole("ADMIN")
 
-
                         .requestMatchers(
                                 HttpMethod.GET,
                                 "/relatorios/funcionarios",
                                 "/relatorios/funcionarios/**"
                         ).hasRole("ADMIN")
 
+                        .requestMatchers(
+                                HttpMethod.GET,
+                                "/funcionarios/*/alocacoes-grupos"
+                        ).hasAnyRole("ADMIN", "USUARIO")
+
+                        .requestMatchers(
+                                HttpMethod.GET,
+                                "/funcionarios/**"
+                        ).hasRole("ADMIN")
+
+                        .requestMatchers(
+                                HttpMethod.PUT,
+                                "/funcionarios/**"
+                        ).hasRole("ADMIN")
+
+                        .requestMatchers(
+                                HttpMethod.GET,
+                                "/jornadas",
+                                "/jornadas/**"
+                        ).hasAnyRole("ADMIN", "USUARIO")
+
+                        .requestMatchers(
+                                HttpMethod.POST,
+                                "/jornadas",
+                                "/jornadas/**"
+                        ).hasRole("ADMIN")
+
+                        .requestMatchers(
+                                HttpMethod.PUT,
+                                "/jornadas/**"
+                        ).hasRole("ADMIN")
+
                         .anyRequest().authenticated()
                 )
+
                 .addFilterBefore(
                         jwtAutenticacaoFiltro,
                         org.springframework.security.web.authentication

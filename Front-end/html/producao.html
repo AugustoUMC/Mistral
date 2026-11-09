@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#15263E">
+    <title>Mistral - Produção</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/producao.css">
+</head>
+<body>
+<header class="cabecalho">
+    <div class="logo">
+        <h1>Mistral</h1>
+        <span>Registro de Produção</span>
+    </div>
+
+    <nav class="acoes-cabecalho" aria-label="Ações da página">
+        <a href="index.html">Início</a>
+        <a href="gerenciamento.html">Grupos e Metas</a>
+        <button id="botaoSair" type="button">Sair</button>
+    </nav>
+</header>
+
+<main class="conteudo conteudo-producao">
+    <section class="cabecalho-producao" aria-labelledby="tituloProducao">
+        <div>
+            <span class="sobretitulo-producao">OPERAÇÃO</span>
+            <h2 id="tituloProducao">Registro de produção</h2>
+            <p>Registre as quantidades produzidas e defeituosas e acompanhe os lançamentos realizados.</p>
+        </div>
+        <span class="contexto-producao">
+            <span aria-hidden="true"></span>
+            Controle operacional
+        </span>
+    </section>
+
+    <section class="painel-registro" aria-labelledby="tituloNovoRegistro">
+        <div class="registro-cabecalho">
+            <div class="registro-identificacao">
+                <span class="registro-icone" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 3.5h10l4 4V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1Z" />
+                        <path d="M14.5 3.5v5h4.5M8 13h8M8 17h8" />
+                    </svg>
+                </span>
+                <div>
+                    <span class="registro-etiqueta">NOVO LANÇAMENTO</span>
+                    <h3 id="tituloNovoRegistro">Registrar produção</h3>
+                    <p>Informe os dados referentes à produção realizada.</p>
+                </div>
+            </div>
+        </div>
+
+        <form id="formularioProducao" class="formulario-producao">
+            <div class="registro-campos-identificacao">
+                <div class="campo">
+                    <label for="grupoProducao">Grupo de produção</label>
+                    <select id="grupoProducao" required>
+                        <option value="">Carregando grupos...</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="produto">Produto</label>
+                    <select id="produto" required>
+                        <option value="">Carregando produtos...</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="dataProducao">Data da produção</label>
+                    <input id="dataProducao" type="date" required>
+                </div>
+            </div>
+
+            <div class="registro-quantidades">
+                <div class="quantidade-introducao">
+                    <span class="quantidade-etiqueta">QUANTIDADES</span>
+                    <strong>Resultado da produção</strong>
+                    <small>Informe números inteiros. A quantidade defeituosa não pode superar a produzida.</small>
+                </div>
+
+                <div class="campo campo-produzido">
+                    <label for="quantidadeProduzida">Quantidade produzida</label>
+                    <input id="quantidadeProduzida" type="number" min="1" step="1" inputmode="numeric" placeholder="Ex.: 500" required>
+                </div>
+
+                <div class="campo campo-defeituoso">
+                    <label for="quantidadeDefeituosa">Quantidade defeituosa</label>
+                    <input id="quantidadeDefeituosa" type="number" min="0" step="1" value="0" inputmode="numeric" required>
+                </div>
+            </div>
+
+            <div class="registro-acoes">
+                <p class="registro-observacao">Confira o grupo, o produto e a data antes de registrar.</p>
+                <button id="botaoRegistrar" class="botao" type="submit">
+                    Registrar produção
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                </button>
+            </div>
+
+            <p id="mensagemCadastro" class="mensagem" role="status" aria-live="polite"></p>
+        </form>
+    </section>
+
+    <section class="painel-consulta" aria-labelledby="tituloConsulta">
+        <div class="consulta-cabecalho">
+            <span class="consulta-icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="10.8" cy="10.8" r="6.8" />
+                    <path d="m16 16 4.5 4.5M8 10.8h5.6M10.8 8v5.6" />
+                </svg>
+            </span>
+            <div>
+                <span class="consulta-etiqueta">PESQUISA DE REGISTROS</span>
+                <h3 id="tituloConsulta">Consultar produção</h3>
+                <p>Filtre os registros por grupo e intervalo de datas.</p>
+            </div>
+        </div>
+
+        <form id="formularioConsulta" class="formulario-consulta">
+            <div class="consulta-campos">
+                <div class="campo">
+                    <label for="grupoConsulta">Grupo</label>
+                    <select id="grupoConsulta" required>
+                        <option value="">Selecione um grupo</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="dataInicial">Data inicial</label>
+                    <input id="dataInicial" type="date" required>
+                </div>
+
+                <div class="campo">
+                    <label for="dataFinal">Data final</label>
+                    <input id="dataFinal" type="date" required>
+                </div>
+            </div>
+
+            <div class="consulta-acoes">
+                <button class="botao" type="submit">Consultar período</button>
+                <button id="botaoMostrarTodos" class="botao-secundario" type="button">
+                    Mostrar todos os registros
+                </button>
+            </div>
+        </form>
+
+        <p id="mensagemConsulta" class="mensagem" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="resumos resumos-producao" aria-label="Resumo dos registros exibidos">
+        <article class="resumo resumo-produzido">
+            <div class="resumo-cabecalho">
+                <span class="resumo-icone" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 19.5h16M6.5 16V9M12 16V5M17.5 16v-4" />
+                    </svg>
+                </span>
+                <span class="resumo-contexto">VOLUME</span>
+            </div>
+            <span class="resumo-titulo">Total produzido</span>
+            <strong id="totalProduzido">0</strong>
+            <small>Peças nos registros exibidos</small>
+        </article>
+
+        <article class="resumo resumo-defeituoso">
+            <div class="resumo-cabecalho">
+                <span class="resumo-icone" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 3.5 21 20H3z" />
+                        <path d="M12 9v4.5M12 17h.01" />
+                    </svg>
+                </span>
+                <span class="resumo-contexto">QUALIDADE</span>
+            </div>
+            <span class="resumo-titulo">Peças defeituosas</span>
+            <strong id="totalDefeituoso">0</strong>
+            <small>Peças nos registros exibidos</small>
+        </article>
+
+        <article class="resumo resumo-percentual">
+            <div class="resumo-cabecalho">
+                <span class="resumo-icone" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 19 19 5M7 7h.01M17 17h.01" />
+                        <circle cx="7" cy="7" r="2.3" />
+                        <circle cx="17" cy="17" r="2.3" />
+                    </svg>
+                </span>
+                <span class="resumo-contexto">INDICADOR</span>
+            </div>
+            <span class="resumo-titulo">Percentual defeituoso</span>
+            <strong id="percentualDefeituoso">0,00%</strong>
+            <small>Defeitos em relação ao produzido</small>
+        </article>
+    </section>
+
+    <section class="painel-historico" aria-labelledby="tituloHistorico">
+        <div class="historico-cabecalho">
+            <div class="historico-titulo">
+                <span class="historico-etiqueta">ACOMPANHAMENTO</span>
+                <h3 id="tituloHistorico">Histórico de produção</h3>
+                <p id="descricaoLista" class="descricao">Exibindo todos os registros cadastrados.</p>
+            </div>
+
+            <button id="botaoAtualizar" class="botao-secundario" type="button">
+                Atualizar registros
+            </button>
+        </div>
+
+        <div class="tabela-container tabela-producao-container">
+            <table class="tabela-producao">
+                <caption class="texto-acessivel">Histórico de produção com data, grupo, produto, quantidades e percentual de defeitos.</caption>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Grupo</th>
+                        <th>Código</th>
+                        <th>Produto</th>
+                        <th>Produzido</th>
+                        <th>Defeituoso</th>
+                        <th>% defeituoso</th>
+                    </tr>
+                </thead>
+
+                <tbody id="listaRegistros">
+                    <tr>
+                        <td colspan="7">Carregando registros...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<script src="../js/producao.js"></script>
+<script src="../js/layout.js"></script>
+</body>
+</html>

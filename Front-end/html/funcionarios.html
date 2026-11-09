@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistral - Funcionários</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/funcionarios.css">
+</head>
+
+<body>
+<header class="cabecalho">
+    <div class="logo">
+        <h1>Mistral</h1>
+        <span>Funcionários e salários</span>
+    </div>
+
+    <nav class="acoes-cabecalho">
+        <a href="index.html">Início</a>
+        <button id="botaoSair" type="button">Sair</button>
+    </nav>
+</header>
+
+<main class="conteudo conteudo-funcionarios">
+    <section class="cabecalho-funcionarios">
+        <div class="titulo-funcionarios">
+            <span class="sobretitulo">GESTÃO DE PESSOAS</span>
+            <h2>Funcionários</h2>
+            <p>Consulte os cadastros, organize os vínculos de produção e mantenha os dados da equipe atualizados.</p>
+        </div>
+        <div class="contexto-funcionarios">
+            <span class="contexto-indicador" aria-hidden="true"></span>
+            <span>Área administrativa</span>
+        </div>
+    </section>
+
+    <section id="avisoRestrito" class="restrito" hidden>
+        <h3>Acesso não autorizado</h3>
+        <p>Seu usuário não tem permissão para acessar o gerenciamento de funcionários. Esta funcionalidade está disponível somente para administradores.</p>
+    </section>
+
+    <div id="painelFuncionarios" hidden>
+        <section class="resumos indicadores-funcionarios" aria-label="Resumo dos funcionários">
+            <article class="resumo indicador-total">
+                <div class="indicador-cabecalho">
+                    <span>BASE CADASTRAL</span>
+                    <span class="indicador-sinal" aria-hidden="true">01</span>
+                </div>
+                <strong id="totalFuncionarios">—</strong>
+                <p>Funcionários cadastrados</p>
+            </article>
+
+            <article class="resumo indicador-ativos">
+                <div class="indicador-cabecalho">
+                    <span>SITUAÇÃO</span>
+                    <span class="indicador-sinal" aria-hidden="true">02</span>
+                </div>
+                <strong id="totalAtivos">—</strong>
+                <p>Cadastros ativos</p>
+            </article>
+
+            <article class="resumo indicador-salarios">
+                <div class="indicador-cabecalho">
+                    <span>FOLHA CADASTRADA</span>
+                    <span class="indicador-sinal" aria-hidden="true">03</span>
+                </div>
+                <strong id="somaSalarios">—</strong>
+                <p>Soma dos salários cadastrados</p>
+            </article>
+        </section>
+
+        <details class="painel-cadastro">
+            <summary class="cadastro-resumo">
+                <span class="cadastro-simbolo" aria-hidden="true">+</span>
+                <span class="cadastro-texto">
+                    <strong>Novo funcionário</strong>
+                    <small>Adicionar dados profissionais, acesso ao sistema e endereço</small>
+                </span>
+                <span class="cadastro-acao">Abrir cadastro</span>
+            </summary>
+
+            <section class="cadastro-conteudo">
+                <div class="cadastro-introducao">
+                    <div>
+                        <span class="sobretitulo">NOVO REGISTRO</span>
+                        <h3>Dados do funcionário</h3>
+                        <p>Preencha os dados profissionais. O acesso ao sistema é opcional e exige senha quando habilitado.</p>
+                    </div>
+                </div>
+
+                <form id="formularioFuncionario">
+                    <section class="form-bloco">
+                        <div class="form-bloco-cabecalho">
+                            <span class="form-etapa">01</span>
+                            <div>
+                                <h4>Dados profissionais</h4>
+                                <p>Identificação e informações do vínculo de trabalho.</p>
+                            </div>
+                        </div>
+
+                        <div class="campos campos-profissionais">
+                            <div class="campo">
+                                <label for="nome">Nome completo</label>
+                                <input id="nome" name="nome" maxlength="150" autocomplete="name" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="matricula">Matrícula</label>
+                                <input id="matricula" name="matricula" maxlength="40" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="cargo">Cargo</label>
+                                <input id="cargo" name="cargo" maxlength="100" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="salario">Salário (R$)</label>
+                                <input id="salario" name="salario" type="number" min="0" step="0.01" required>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="form-bloco form-bloco-acesso">
+                        <div class="form-bloco-cabecalho">
+                            <span class="form-etapa">02</span>
+                            <div>
+                                <h4>Acesso ao sistema</h4>
+                                <p>Defina se o funcionário poderá entrar no Mistral.</p>
+                            </div>
+                        </div>
+
+                        <div class="campos campos-acesso">
+                            <div class="campo">
+                                <label for="acessoSistema">Acesso ao sistema</label>
+                                <select id="acessoSistema" name="acessoSistema" required>
+                                    <option value="false">Não</option>
+                                    <option value="true">Sim</option>
+                                </select>
+                            </div>
+
+                            <div class="campo" id="campoSenha" hidden>
+                                <label for="senha">Senha de acesso</label>
+
+                                <div class="controle-senha">
+                                    <input
+                                        id="senha"
+                                        name="senha"
+                                        type="password"
+                                        autocomplete="new-password"
+                                        minlength="8"
+                                        disabled
+                                    >
+
+                                    <button
+                                        class="botao-olho"
+                                        type="button"
+                                        data-alvo="senha"
+                                        aria-label="Mostrar senha"
+                                        aria-pressed="false"
+                                        title="Mostrar senha"
+                                        disabled
+                                    >
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                            <line x1="3" y1="3" x2="21" y2="21" class="risco-olho" style="display:none"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="campo" id="campoConfirmarSenha" hidden>
+                                <label for="confirmarSenha">Confirmar senha</label>
+
+                                <div class="controle-senha">
+                                    <input
+                                        id="confirmarSenha"
+                                        name="confirmarSenha"
+                                        type="password"
+                                        autocomplete="new-password"
+                                        minlength="8"
+                                        disabled
+                                    >
+
+                                    <button
+                                        class="botao-olho"
+                                        type="button"
+                                        data-alvo="confirmarSenha"
+                                        aria-label="Mostrar confirmação da senha"
+                                        aria-pressed="false"
+                                        title="Mostrar confirmação da senha"
+                                        disabled
+                                    >
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                            <line x1="3" y1="3" x2="21" y2="21" class="risco-olho" style="display:none"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <details class="endereco-opcional">
+                        <summary>
+                            <span>Endereço adicional</span>
+                            <small>Opcional</small>
+                        </summary>
+
+                        <section class="secao-endereco">
+                            <p class="descricao">Os dados de endereço podem ser preenchidos agora ou adicionados posteriormente em Dados pessoais.</p>
+
+                            <div class="campos">
+                                <div class="campo">
+                                    <label for="cepCadastro">CEP</label>
+                                    <input
+                                        id="cepCadastro"
+                                        name="cep"
+                                        type="text"
+                                        inputmode="numeric"
+                                        autocomplete="postal-code"
+                                        maxlength="9"
+                                        pattern="[0-9]{5}-?[0-9]{3}"
+                                        placeholder="00000-000"
+                                    >
+                                </div>
+
+                                <div class="campo">
+                                    <label for="logradouroCadastro">Logradouro</label>
+                                    <input
+                                        id="logradouroCadastro"
+                                        name="logradouro"
+                                        maxlength="150"
+                                        autocomplete="address-line1"
+                                        placeholder="Rua, avenida, estrada..."
+                                    >
+                                </div>
+
+                                <div class="campo">
+                                    <label for="numeroCadastro">Número</label>
+                                    <input
+                                        id="numeroCadastro"
+                                        name="numero"
+                                        maxlength="20"
+                                        placeholder="Número ou S/N"
+                                    >
+                                </div>
+
+                                <div class="campo">
+                                    <label for="complementoCadastro">Complemento</label>
+                                    <input
+                                        id="complementoCadastro"
+                                        name="complemento"
+                                        maxlength="100"
+                                        autocomplete="address-line2"
+                                        placeholder="Apartamento, bloco..."
+                                    >
+                                </div>
+
+                                <div class="campo">
+                                    <label for="bairroCadastro">Bairro</label>
+                                    <input
+                                        id="bairroCadastro"
+                                        name="bairro"
+                                        maxlength="100"
+                                        autocomplete="address-level3"
+                                    >
+                                </div>
+
+                                <div class="campo">
+                                    <label for="cidadeCadastro">Cidade</label>
+                                    <input
+                                        id="cidadeCadastro"
+                                        name="cidade"
+                                        maxlength="100"
+                                        autocomplete="address-level2"
+                                    >
+                                </div>
+
+                                <div class="campo">
+                                    <label for="ufCadastro">UF</label>
+                                    <input
+                                        id="ufCadastro"
+                                        name="uf"
+                                        maxlength="2"
+                                        pattern="[A-Za-z]{2}"
+                                        autocomplete="address-level1"
+                                        placeholder="SP"
+                                    >
+                                </div>
+                            </div>
+                        </section>
+                    </details>
+
+                    <div class="formulario-acoes">
+                        <button class="botao" type="submit">Cadastrar funcionário</button>
+                        <p id="mensagemCadastro" class="mensagem" role="status" aria-live="polite"></p>
+                    </div>
+                </form>
+            </section>
+        </details>
+
+        <section class="cartao cartao-lista-funcionarios">
+            <div class="acoes-tabela">
+                <div>
+                    <h3>Lista de funcionários</h3>
+                    <p class="descricao">Selecione funcionários ativos para somar seus salários e gerencie os grupos de produção associados.</p>
+                </div>
+
+                <button id="botaoAtualizar" class="botao-secundario" type="button">
+                    Atualizar lista
+                </button>
+            </div>
+
+            <div class="tabela-container tabela-funcionarios-container">
+                <table class="tabela-funcionarios">
+                    <caption class="texto-acessivel">Lista de funcionários cadastrados, situação e ações disponíveis.</caption>
+                    <thead>
+                        <tr>
+                            <th>Selecionar</th>
+                            <th>Nome</th>
+                            <th>Matrícula</th>
+                            <th>Cargo</th>
+                            <th>Grupo(s) atuais</th>
+                            <th>Salário</th>
+                            <th>Ativo</th>
+                            <th>Acesso</th>
+                            <th>Perfil</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="listaFuncionarios">
+                        <tr>
+                            <td colspan="10">Carregando funcionários...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="acoes-tabela acoes-salarios">
+                <button id="botaoSomarSelecionados" class="botao" type="button">
+                    Somar salários selecionados
+                </button>
+            </div>
+
+            <p id="resultadoSelecao" class="resultado-selecao" aria-live="polite"></p>
+            <p id="mensagemLista" class="mensagem" role="status" aria-live="polite"></p>
+        </section>
+    </div>
+
+    <dialog
+        id="dialogGruposFuncionario"
+        class="dialog-grupos"
+        aria-labelledby="tituloDialogGrupos"
+    >
+        <div class="dialog-conteudo">
+
+            <div class="dialog-cabecalho">
+                <div>
+                    <h3 id="tituloDialogGrupos">
+                        Grupos do funcionário
+                    </h3>
+
+                    <p id="nomeFuncionarioGrupos"></p>
+                </div>
+
+                <button
+                    id="botaoFecharDialogGrupos"
+                    class="botao-secundario"
+                    type="button"
+                    aria-label="Fechar janela"
+                >
+                    Fechar
+                </button>
+            </div>
+
+            <p id="ajudaDialogGrupos" class="dialog-ajuda">
+                Selecione um ou mais grupos. Ao retirar um grupo,
+                o vínculo anterior será encerrado e permanecerá no histórico.
+            </p>
+
+            <section class="dialog-secao">
+                <h4>Grupos disponíveis</h4>
+
+                <div
+                    id="listaGruposDisponiveis"
+                    class="lista-grupos-disponiveis"
+                    aria-live="polite"
+                >
+                    <p>Carregando grupos...</p>
+                </div>
+            </section>
+
+            <section class="dialog-secao">
+                <h4>Histórico de alocações</h4>
+
+                <ul
+                    id="historicoGrupos"
+                    class="historico-grupos"
+                >
+                    <li>Carregando histórico...</li>
+                </ul>
+            </section>
+
+            <p
+                id="mensagemGrupos"
+                class="mensagem"
+                role="status"
+                aria-live="polite"
+            ></p>
+
+            <div class="dialog-acoes">
+                <button
+                    id="botaoSalvarGrupos"
+                    class="botao"
+                    type="button"
+                >
+                    Salvar grupos
+                </button>
+
+                <button
+                    id="botaoCancelarGrupos"
+                    class="botao-secundario"
+                    type="button"
+                >
+                    Cancelar
+                </button>
+            </div>
+
+        </div>
+    </dialog>
+
+    <dialog
+        id="dialogEnderecoFuncionario"
+        class="dialog-grupos"
+        aria-labelledby="tituloDialogEndereco"
+    >
+        <div class="dialog-conteudo">
+            <div class="dialog-cabecalho">
+                <div>
+                    <h3 id="tituloDialogEndereco">Dados pessoais do funcionário</h3>
+                    <p id="nomeFuncionarioEndereco"></p>
+                </div>
+
+                <button
+                    id="botaoFecharDialogEndereco"
+                    class="botao-secundario"
+                    type="button"
+                    aria-label="Fechar janela"
+                >
+                    Fechar
+                </button>
+            </div>
+
+            <p class="dialog-ajuda">
+                Preencha ou atualize o endereço do funcionário. Todos os campos são opcionais.
+            </p>
+
+            <div class="dialog-secao">
+                <div class="campos">
+                    <div class="campo">
+                        <label for="cepEndereco">CEP</label>
+                        <input
+                            id="cepEndereco"
+                            type="text"
+                            inputmode="numeric"
+                            autocomplete="postal-code"
+                            maxlength="9"
+                            pattern="[0-9]{5}-?[0-9]{3}"
+                            placeholder="00000-000"
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="logradouroEndereco">Logradouro</label>
+                        <input
+                            id="logradouroEndereco"
+                            maxlength="150"
+                            autocomplete="address-line1"
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="numeroEndereco">Número</label>
+                        <input id="numeroEndereco" maxlength="20" placeholder="Número ou S/N">
+                    </div>
+
+                    <div class="campo">
+                        <label for="complementoEndereco">Complemento</label>
+                        <input
+                            id="complementoEndereco"
+                            maxlength="100"
+                            autocomplete="address-line2"
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="bairroEndereco">Bairro</label>
+                        <input
+                            id="bairroEndereco"
+                            maxlength="100"
+                            autocomplete="address-level3"
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="cidadeEndereco">Cidade</label>
+                        <input
+                            id="cidadeEndereco"
+                            maxlength="100"
+                            autocomplete="address-level2"
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="ufEndereco">UF</label>
+                        <input
+                            id="ufEndereco"
+                            maxlength="2"
+                            pattern="[A-Za-z]{2}"
+                            autocomplete="address-level1"
+                            placeholder="SP"
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <p
+                id="mensagemEndereco"
+                class="mensagem"
+                role="status"
+                aria-live="polite"
+            ></p>
+
+            <div class="dialog-acoes">
+                <button
+                    id="botaoSalvarEndereco"
+                    class="botao"
+                    type="button"
+                >
+                    Salvar endereço
+                </button>
+
+                <button
+                    id="botaoCancelarEndereco"
+                    class="botao-secundario"
+                    type="button"
+                >
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </dialog>
+</main>
+
+<script src="../js/funcionarios.js"></script>
+<script src="../js/layout.js"></script>
+</body>
+</html>

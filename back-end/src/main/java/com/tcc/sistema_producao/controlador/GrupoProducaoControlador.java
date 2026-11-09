@@ -3,6 +3,7 @@ package com.tcc.sistema_producao.controlador;
 import com.tcc.sistema_producao.entidade.GrupoProducao;
 import com.tcc.sistema_producao.servico.GrupoProducaoServico;
 import jakarta.validation.Valid;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,9 @@ public class GrupoProducaoControlador {
 
     private final GrupoProducaoServico grupoProducaoServico;
 
-    public GrupoProducaoControlador(GrupoProducaoServico grupoProducaoServico) {
+    public GrupoProducaoControlador(
+            GrupoProducaoServico grupoProducaoServico) {
+
         this.grupoProducaoServico = grupoProducaoServico;
     }
 
@@ -44,7 +47,9 @@ public class GrupoProducaoControlador {
     public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
 
         try {
-            return ResponseEntity.ok(grupoProducaoServico.buscarPorId(id));
+            return ResponseEntity.ok(
+                    grupoProducaoServico.buscarPorId(id)
+            );
 
         } catch (IllegalArgumentException e) {
             return ResponseEntity
@@ -75,9 +80,19 @@ public class GrupoProducaoControlador {
 
         try {
             grupoProducaoServico.excluir(id);
+
             return ResponseEntity.noContent().build();
 
+        } catch (DataIntegrityViolationException e) {
+
+            return ResponseEntity
+                    .status(HttpStatus.CONFLICT)
+                    .body(
+                            "O grupo possui vínculos com registros do sistema e não pode ser excluído."
+                    );
+
         } catch (IllegalArgumentException e) {
+
             return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
                     .body(e.getMessage());
