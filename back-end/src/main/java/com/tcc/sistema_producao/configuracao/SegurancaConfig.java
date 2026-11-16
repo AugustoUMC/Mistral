@@ -1,4 +1,3 @@
-
 package com.tcc.sistema_producao.configuracao;
 
 import com.tcc.sistema_producao.servico.FuncionarioDetalhesServico;
@@ -54,6 +53,24 @@ public class SegurancaConfig {
         provider.setPasswordEncoder(passwordEncoder);
 
         return provider::authenticate;
+    }
+
+    /*
+     * O filtro JWT será executado exclusivamente dentro da cadeia
+     * do Spring Security, evitando seu registro independente
+     * no servlet container.
+     */
+    @Bean
+    public FilterRegistrationBean<JwtAutenticacaoFiltro>
+    jwtAutenticacaoFiltroRegistration() {
+
+        FilterRegistrationBean<JwtAutenticacaoFiltro> registration =
+                new FilterRegistrationBean<>();
+
+        registration.setFilter(jwtAutenticacaoFiltro);
+        registration.setEnabled(false);
+
+        return registration;
     }
 
     @Bean
