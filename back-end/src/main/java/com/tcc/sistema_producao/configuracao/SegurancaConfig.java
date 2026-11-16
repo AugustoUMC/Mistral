@@ -1,3 +1,4 @@
+
 package com.tcc.sistema_producao.configuracao;
 
 import com.tcc.sistema_producao.servico.FuncionarioDetalhesServico;
@@ -60,19 +61,6 @@ public class SegurancaConfig {
      * do Spring Security, evitando seu registro independente
      * no servlet container.
      */
-    @Bean
-    public FilterRegistrationBean<JwtAutenticacaoFiltro>
-    jwtAutenticacaoFiltroRegistration() {
-
-        FilterRegistrationBean<JwtAutenticacaoFiltro> registration =
-                new FilterRegistrationBean<>();
-
-        registration.setFilter(jwtAutenticacaoFiltro);
-        registration.setEnabled(false);
-
-        return registration;
-    }
-
     @Bean
     public FilterRegistrationBean<JwtAutenticacaoFiltro>
     jwtAutenticacaoFiltroRegistration() {
