@@ -1,4 +1,3 @@
-
 package com.tcc.sistema_producao.servico;
 
 import com.tcc.sistema_producao.dto.RegistroProducaoDTO;
@@ -75,6 +74,10 @@ public class RegistroProducaoServico {
         registro.setQuantidadeDefeituosa(
                 dto.quantidadeDefeituosa()
         );
+
+        // Preserva o valor vigente no momento do registro.
+        // Atualizações futuras do produto não alteram o histórico.
+        registro.setPrecoBrutoUnitario(produto.getPrecoBruto());
 
         RegistroProducao salvo =
                 registroRepositorio.save(registro);
@@ -161,6 +164,7 @@ public class RegistroProducaoServico {
                 registro.getDataProducao(),
                 registro.getQuantidadeProduzida(),
                 registro.getQuantidadeDefeituosa(),
+                registro.getPrecoBrutoUnitario(),
                 percentual
         );
     }

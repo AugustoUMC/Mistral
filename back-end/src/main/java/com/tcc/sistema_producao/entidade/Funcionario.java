@@ -1,4 +1,3 @@
-
 package com.tcc.sistema_producao.entidade;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -33,6 +32,27 @@ public class Funcionario {
     @NotBlank(message = "O cargo é obrigatório")
     @Column(nullable = false)
     private String cargo;
+
+    @Column(length = 9)
+    private String cep;
+
+    @Column(length = 150)
+    private String logradouro;
+
+    @Column(length = 20)
+    private String numero;
+
+    @Column(length = 100)
+    private String complemento;
+
+    @Column(length = 100)
+    private String bairro;
+
+    @Column(length = 100)
+    private String cidade;
+
+    @Column(length = 2)
+    private String uf;
 
     @NotNull(message = "O salário é obrigatório")
     @DecimalMin(value = "0.00", message = "O salário não pode ser negativo")

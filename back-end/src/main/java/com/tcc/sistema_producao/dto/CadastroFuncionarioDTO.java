@@ -1,6 +1,6 @@
-
 package com.tcc.sistema_producao.dto;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -27,7 +27,10 @@ public record CadastroFuncionarioDTO(
 
         String senha,
 
-        Boolean acessoSistema
+        Boolean acessoSistema,
+
+        @Valid
+        EnderecoFuncionarioDTO endereco
 
 ) {
 }

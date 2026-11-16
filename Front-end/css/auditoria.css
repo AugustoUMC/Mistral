@@ -1,0 +1,227 @@
+
+.mistral-app .conteudo-auditoria {
+    max-width: 1500px;
+    padding: 32px 36px 50px;
+}
+
+.mistral-app .cabecalho-auditoria {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 22px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.mistral-app .sobretitulo-auditoria {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--cor-azul);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.mistral-app .cabecalho-auditoria h2 {
+    margin: 0 0 7px;
+    color: var(--cor-marinho);
+    font-size: 28px;
+}
+
+.mistral-app .cabecalho-auditoria p {
+    max-width: 720px;
+    margin: 0;
+    color: var(--cor-texto-secundario);
+    font-size: 14px;
+}
+
+.mistral-app .selo-administrador {
+    flex-shrink: 0;
+    padding: 9px 13px;
+    border: 1px solid #C7D9F9;
+    border-radius: 100px;
+    background: #EDF3FF;
+    color: #2859AE;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.mistral-app .painel-auditoria {
+    min-width: 0;
+    padding: 22px;
+    margin-bottom: 18px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 14px;
+    background: var(--cor-superficie);
+    box-shadow: var(--sombra-leve);
+}
+
+.mistral-app .painel-auditoria h3 {
+    margin: 0 0 14px;
+    color: var(--cor-marinho);
+    font-size: 18px;
+}
+
+.mistral-app .filtros-auditoria {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 16px;
+}
+
+.mistral-app .filtros-auditoria .campo {
+    min-width: 0;
+    margin: 0;
+}
+
+.mistral-app .filtros-auditoria .campo label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.mistral-app .filtros-auditoria .campo input {
+    width: 100%;
+    min-height: 42px;
+}
+
+.mistral-app .acoes-filtros-auditoria {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.mistral-app .acoes-filtros-auditoria button {
+    min-width: 130px;
+}
+
+.mistral-app .mensagem-auditoria {
+    margin: 0 0 14px;
+}
+
+.mistral-app .cabecalho-registros-auditoria {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.mistral-app .cabecalho-registros-auditoria h3 {
+    margin: 0 0 5px;
+}
+
+.mistral-app .cabecalho-registros-auditoria p {
+    margin: 0;
+    color: var(--cor-texto-secundario);
+    font-size: 13px;
+}
+
+.mistral-app .tabela-auditoria-container {
+    max-width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--cor-borda);
+    border-radius: 9px;
+}
+
+.mistral-app .tabela-auditoria {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.mistral-app .tabela-auditoria th {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--cor-borda);
+    background: var(--cor-fundo);
+    color: #53647A;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.mistral-app .tabela-auditoria td {
+    padding: 13px 14px;
+    border-bottom: 1px solid #EDF1F5;
+    color: var(--cor-texto);
+    vertical-align: top;
+}
+
+.mistral-app .tabela-auditoria tbody tr:nth-child(even) {
+    background: #FBFCFE;
+}
+
+.mistral-app .tabela-auditoria tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.mistral-app .tabela-auditoria td:last-child {
+    min-width: 320px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.mistral-app .etiqueta-operacao {
+    display: inline-block;
+    max-width: 260px;
+    padding: 4px 8px;
+    border: 1px solid #D6E2F7;
+    border-radius: 6px;
+    background: #F4F7FE;
+    color: #2859AE;
+    font-size: 11px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.mistral-app .paginacao-auditoria {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.mistral-app .paginacao-auditoria span {
+    font-size: 13px;
+    color: var(--cor-texto-secundario);
+}
+
+@media (max-width: 800px) {
+    .mistral-app .conteudo-auditoria {
+        padding: 24px 18px 40px;
+    }
+}
+
+@media (max-width: 560px) {
+    .mistral-app .cabecalho-auditoria,
+    .mistral-app .cabecalho-registros-auditoria {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .mistral-app .filtros-auditoria {
+        grid-template-columns: 1fr;
+    }
+
+    .mistral-app .acoes-filtros-auditoria {
+        flex-direction: column;
+    }
+
+    .mistral-app .acoes-filtros-auditoria button,
+    .mistral-app .cabecalho-registros-auditoria button {
+        width: 100%;
+    }
+
+    .mistral-app .painel-auditoria {
+        padding: 16px;
+    }
+
+    .mistral-app .paginacao-auditoria {
+        justify-content: center;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,297 @@
+
+.mistral-app .app-layout {
+    min-height: 100vh;
+}
+
+.mistral-app .menu-lateral {
+    position: fixed;
+    z-index: 100;
+    inset: 0 auto 0 0;
+    display: flex;
+    flex-direction: column;
+    width: var(--largura-menu);
+    min-height: 100vh;
+    padding: 24px 16px 18px;
+    color: #FFFFFF;
+    background: var(--cor-marinho);
+}
+
+.mistral-app .menu-marca {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 2px 12px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.mistral-app .menu-marca strong {
+    color: #FFFFFF;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.mistral-app .menu-marca span {
+    color: #AFC0D6;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.mistral-app .menu-navegacao {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 22px;
+}
+
+.mistral-app .menu-grupo-titulo {
+    margin: 18px 12px 6px;
+    color: #91A5C0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.mistral-app .menu-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 13px;
+    border-radius: var(--raio-padrao);
+    color: #D8E2EF;
+    font-size: var(--texto-secundario);
+    font-weight: 500;
+    transition: background var(--transicao-padrao), color var(--transicao-padrao);
+}
+
+.mistral-app .menu-link:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.mistral-app .menu-link.ativo {
+    color: #FFFFFF;
+    background: var(--cor-azul);
+    font-weight: 600;
+}
+
+.mistral-app .menu-link.ativo::before {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 0;
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+    background: #FFFFFF;
+    content: "";
+}
+
+.mistral-app .menu-rodape {
+    margin-top: auto;
+    padding: 16px 12px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+    color: #AFC0D6;
+    font-size: var(--texto-pequeno);
+}
+
+.mistral-app .app-principal {
+    min-width: 0;
+    min-height: 100vh;
+    margin-left: var(--largura-menu);
+}
+
+.mistral-app .cabecalho-global {
+    position: sticky;
+    z-index: 50;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: var(--altura-cabecalho);
+    padding: 12px 32px;
+    border-bottom: 1px solid var(--cor-borda);
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: var(--sombra-leve);
+    backdrop-filter: blur(10px);
+}
+
+.mistral-app .cabecalho-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.mistral-app .cabecalho-pagina-info h1 {
+    margin: 0;
+    color: var(--cor-marinho);
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.mistral-app .cabecalho-pagina-info p {
+    margin: 2px 0 0;
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+}
+
+.mistral-app .acoes-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mistral-app .identificacao-perfil {
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+}
+
+.mistral-app .botao-menu-mobile,
+.mistral-app .menu-fundo {
+    display: none;
+}
+
+.mistral-app .conteudo {
+    width: 100%;
+    max-width: var(--largura-conteudo);
+    margin: 0 auto;
+    padding: 32px;
+}
+
+.mistral-publico .cabecalho-publico {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 76px;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--cor-borda);
+    background: #FFFFFF;
+}
+
+.mistral-publico .cabecalho-publico h1 {
+    margin: 0;
+    color: var(--cor-marinho);
+    font-size: 25px;
+}
+
+.mistral-publico .cabecalho-publico p {
+    margin: 2px 0 0;
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+}
+
+.mistral-publico .conteudo {
+    width: min(100% - 40px, 1040px);
+    margin: 32px auto;
+    padding: 0;
+}
+
+.mistral-publico .botao-secundario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 8px 14px;
+    border: 1px solid var(--cor-borda-forte);
+    border-radius: var(--raio-padrao);
+    color: var(--cor-texto);
+    background: #FFFFFF;
+    font-size: var(--texto-secundario);
+    font-weight: 600;
+}
+
+.mistral-publico .botao-secundario:hover {
+    border-color: var(--cor-azul);
+    color: var(--cor-azul);
+}
+
+@media (max-width: 980px) {
+    :root {
+        --largura-menu: 232px;
+    }
+
+    .mistral-app .conteudo {
+        padding: 26px 22px;
+    }
+}
+
+@media (max-width: 760px) {
+    .mistral-app .menu-lateral {
+        z-index: 120;
+        transform: translateX(-100%);
+        transition: transform var(--transicao-padrao);
+    }
+
+    .mistral-app.menu-aberto .menu-lateral {
+        transform: translateX(0);
+    }
+
+    .mistral-app .menu-fundo {
+        position: fixed;
+        z-index: 110;
+        inset: 0;
+        display: block;
+        border: 0;
+        background: rgba(12, 24, 40, 0.48);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transicao-padrao);
+    }
+
+    .mistral-app.menu-aberto .menu-fundo {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .mistral-app .app-principal {
+        margin-left: 0;
+    }
+
+    .mistral-app .cabecalho-global {
+        min-height: 68px;
+        padding: 12px 18px;
+    }
+
+    .mistral-app .botao-menu-mobile {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border: 1px solid var(--cor-borda);
+        border-radius: var(--raio-padrao);
+        color: var(--cor-marinho);
+        background: #FFFFFF;
+        font-size: 21px;
+    }
+
+    .mistral-app .conteudo {
+        padding: 22px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mistral-app .cabecalho-global {
+        padding: 12px;
+    }
+
+    .mistral-app .cabecalho-pagina-info h1 {
+        font-size: 16px;
+    }
+
+    .mistral-app .identificacao-perfil {
+        display: none;
+    }
+
+    .mistral-app .conteudo {
+        padding: 18px 12px;
+    }
+
+    .mistral-publico .cabecalho-publico {
+        padding: 14px 20px;
+    }
+}

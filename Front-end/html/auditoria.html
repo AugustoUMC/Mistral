@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#15263E">
+    <title>Mistral - Auditoria</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/auditoria.css">
+</head>
+<body>
+<header class="cabecalho">
+    <div class="logo">
+        <h1>Mistral</h1>
+        <span>Auditoria</span>
+    </div>
+    <nav class="acoes-cabecalho" aria-label="Ações da página">
+        <a href="index.html">Início</a>
+        <button id="botaoSair" type="button">Sair</button>
+    </nav>
+</header>
+
+<main class="conteudo conteudo-auditoria">
+    <section class="cabecalho-auditoria">
+        <div>
+            <span class="sobretitulo-auditoria">ADMINISTRAÇÃO E RASTREABILIDADE</span>
+            <h2>Auditoria do sistema</h2>
+            <p>Consulte o histórico das operações registradas. Os registros são somente para leitura.</p>
+        </div>
+        <span class="selo-administrador">Acesso ADMIN</span>
+    </section>
+
+    <section class="painel-auditoria" aria-labelledby="tituloFiltrosAuditoria">
+        <h3 id="tituloFiltrosAuditoria">Filtrar registros</h3>
+        <form id="formularioFiltrosAuditoria" class="filtros-auditoria">
+            <div class="campo">
+                <label for="filtroMatricula">Matrícula</label>
+                <input id="filtroMatricula" name="matricula" type="text" placeholder="Todas as matrículas">
+            </div>
+            <div class="campo">
+                <label for="filtroOperacao">Operação</label>
+                <input id="filtroOperacao" name="operacao" type="text" placeholder="Todas as operações">
+            </div>
+            <div class="campo">
+                <label for="filtroDataInicial">Data inicial</label>
+                <input id="filtroDataInicial" name="dataInicial" type="date">
+            </div>
+            <div class="campo">
+                <label for="filtroDataFinal">Data final</label>
+                <input id="filtroDataFinal" name="dataFinal" type="date">
+            </div>
+            <div class="acoes-filtros-auditoria">
+                <button id="botaoFiltrarAuditoria" class="botao" type="submit">Consultar</button>
+                <button id="botaoLimparAuditoria" class="botao-secundario" type="button">Limpar filtros</button>
+            </div>
+        </form>
+    </section>
+
+    <p id="mensagemAuditoria" class="mensagem mensagem-auditoria" role="status" aria-live="polite"></p>
+
+    <section class="painel-auditoria" aria-labelledby="tituloRegistrosAuditoria">
+        <div class="cabecalho-registros-auditoria">
+            <div>
+                <h3 id="tituloRegistrosAuditoria">Histórico de operações</h3>
+                <p id="resumoAuditoria">Carregando registros...</p>
+            </div>
+            <button id="botaoAtualizarAuditoria" class="botao-secundario" type="button">Atualizar</button>
+        </div>
+        <div class="tabela-auditoria-container">
+            <table class="tabela-auditoria">
+                <thead>
+                    <tr>
+                        <th scope="col">Data e hora</th>
+                        <th scope="col">Matrícula</th>
+                        <th scope="col">Operação</th>
+                        <th scope="col">Descrição</th>
+                    </tr>
+                </thead>
+                <tbody id="listaAuditoria">
+                    <tr><td colspan="4">Carregando...</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="paginacao-auditoria">
+            <button id="botaoAnteriorAuditoria" class="botao-secundario" type="button" disabled>Anterior</button>
+            <span id="paginaAuditoria" aria-live="polite">Página 1</span>
+            <button id="botaoProximoAuditoria" class="botao-secundario" type="button" disabled>Próxima</button>
+        </div>
+    </section>
+</main>
+<script src="../js/auditoria.js"></script>
+<script src="../js/layout.js"></script>
+</body>
+</html>

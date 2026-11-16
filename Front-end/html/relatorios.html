@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#15263E">
+    <title>Mistral - Relatórios</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/relatorios.css">
+</head>
+<body>
+<header class="cabecalho">
+    <div class="logo">
+        <h1>Mistral</h1>
+        <span>Consultas e Relatórios</span>
+    </div>
+
+    <nav class="acoes-cabecalho" aria-label="Ações da página">
+        <a href="index.html">Início</a>
+        <a href="producao.html">Produção</a>
+        <button id="botaoSair" type="button">Sair</button>
+    </nav>
+</header>
+
+<main class="conteudo conteudo-relatorios">
+    <section class="cabecalho-relatorios">
+        <div>
+            <span class="sobretitulo-relatorios">ANÁLISE DA OPERAÇÃO</span>
+            <h2>Relatórios de produção</h2>
+            <p>Consulte o cumprimento das metas, os volumes produzidos, as peças defeituosas e os feriados do período.</p>
+        </div>
+        <span class="contexto-relatorios">
+            <span aria-hidden="true"></span>
+            Consultas consolidadas
+        </span>
+    </section>
+
+    <section class="consultas-relatorios" aria-label="Opções de consulta">
+        <article class="consulta-relatorio consulta-periodo">
+            <div class="consulta-relatorio-cabecalho">
+                <span class="consulta-relatorio-icone icone-periodo" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3.5" y="5" width="17" height="15.5" rx="2" />
+                        <path d="M7.5 3v4M16.5 3v4M3.5 9.5h17M8 13h3M8 16.5h7" />
+                    </svg>
+                </span>
+                <div>
+                    <span class="consulta-relatorio-etiqueta">CONSULTA POR INTERVALO</span>
+                    <h3>Relatório por período</h3>
+                    <p>Defina uma data inicial e uma data final.</p>
+                </div>
+            </div>
+
+            <form id="formularioPeriodo">
+                <div class="campos campos-periodo">
+                    <div class="campo">
+                        <label for="dataInicial">Data inicial</label>
+                        <input id="dataInicial" type="date" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="dataFinal">Data final</label>
+                        <input id="dataFinal" type="date" required>
+                    </div>
+                </div>
+
+                <button id="botaoPeriodo" class="botao" type="submit">
+                    Gerar relatório por período
+                </button>
+            </form>
+        </article>
+
+        <article class="consulta-relatorio consulta-mensal">
+            <div class="consulta-relatorio-cabecalho">
+                <span class="consulta-relatorio-icone icone-mensal" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3.5" y="5" width="17" height="15.5" rx="2" />
+                        <path d="M7.5 3v4M16.5 3v4M3.5 9.5h17M8 13h2M14 13h2M8 16.5h2" />
+                    </svg>
+                </span>
+                <div>
+                    <span class="consulta-relatorio-etiqueta">CONSULTA MENSAL</span>
+                    <h3>Relatório mensal</h3>
+                    <p>Selecione o mês e o ano desejados.</p>
+                </div>
+            </div>
+
+            <form id="formularioMensal">
+                <div class="campos campos-mensal">
+                    <div class="campo">
+                        <label for="mes">Mês</label>
+                        <select id="mes" required>
+                            <option value="1">Janeiro</option>
+                            <option value="2">Fevereiro</option>
+                            <option value="3">Março</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Maio</option>
+                            <option value="6">Junho</option>
+                            <option value="7">Julho</option>
+                            <option value="8">Agosto</option>
+                            <option value="9">Setembro</option>
+                            <option value="10">Outubro</option>
+                            <option value="11">Novembro</option>
+                            <option value="12">Dezembro</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="ano">Ano</label>
+                        <input id="ano" type="number" min="2000" max="2100" required>
+                    </div>
+                </div>
+
+                <button id="botaoMensal" class="botao botao-mensal" type="submit">
+                    Gerar relatório mensal
+                </button>
+            </form>
+        </article>
+    </section>
+
+    <p id="mensagemRelatorio" class="mensagem mensagem-relatorio" role="status" aria-live="polite"></p>
+
+    <section id="areaResultado" class="area-resultado-relatorios" hidden>
+        <div class="resultado-relatorios-cabecalho">
+            <div>
+                <span class="resultado-relatorios-etiqueta">RESULTADO DA CONSULTA</span>
+                <h2>Desempenho da produção</h2>
+                <p id="periodoConsultado" class="descricao"></p>
+            </div>
+
+            <button id="botaoImprimir" class="botao-secundario" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 8V3.5h10V8M7 17H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                    <path d="M7 14h10v6.5H7zM17 11.5h.01" />
+                </svg>
+                Imprimir relatório
+            </button>
+        </div>
+
+        <section class="resumos resumos-relatorios" aria-label="Indicadores do relatório">
+            <article class="resumo indicador-meta">
+                <span class="indicador-etiqueta">PLANEJAMENTO</span>
+                <span class="resumo-titulo">Meta total</span>
+                <strong id="totalMeta">0</strong>
+                <small>Peças previstas</small>
+            </article>
+
+            <article class="resumo indicador-produzido">
+                <span class="indicador-etiqueta">VOLUME</span>
+                <span class="resumo-titulo">Total produzido</span>
+                <strong id="totalProduzido">0</strong>
+                <small>Peças produzidas</small>
+            </article>
+
+            <article class="resumo indicador-defeituoso">
+                <span class="indicador-etiqueta">QUALIDADE</span>
+                <span class="resumo-titulo">Peças defeituosas</span>
+                <strong id="totalDefeituoso">0</strong>
+                <small>Peças com defeito</small>
+            </article>
+
+            <article class="resumo indicador-meta-atingida">
+                <span class="indicador-etiqueta">RESULTADO</span>
+                <span class="resumo-titulo">Meta atingida</span>
+                <strong id="percentualMeta">—</strong>
+                <small>Produção em relação à meta</small>
+            </article>
+
+            <article class="resumo indicador-percentual-defeituoso">
+                <span class="indicador-etiqueta">ÍNDICE DE DEFEITOS</span>
+                <span class="resumo-titulo">Percentual defeituoso</span>
+                <strong id="percentualDefeituoso">—</strong>
+                <small>Defeitos em relação ao produzido</small>
+            </article>
+        </section>
+
+        <section class="painel-detalhes-relatorio">
+            <div class="painel-relatorio-cabecalho">
+                <div>
+                    <span class="painel-relatorio-etiqueta">COMPOSIÇÃO DOS RESULTADOS</span>
+                    <h3>Detalhamento por grupo e produto</h3>
+                    <p>Comparação entre metas, produção realizada e peças defeituosas.</p>
+                </div>
+            </div>
+
+            <div class="tabela-container tabela-detalhes-relatorio">
+                <table>
+                    <caption class="texto-acessivel">Detalhamento do relatório por grupo e produto, incluindo meta, quantidade produzida, defeitos e percentuais.</caption>
+                    <thead>
+                        <tr>
+                            <th>Grupo</th>
+                            <th>Código</th>
+                            <th>Produto</th>
+                            <th>Meta</th>
+                            <th>Produzido</th>
+                            <th>Defeituoso</th>
+                            <th>Meta atingida</th>
+                            <th>% defeituoso</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaDetalhes">
+                        <tr>
+                            <td colspan="8">Gere um relatório para visualizar os dados.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="painel-feriados-relatorio">
+            <div class="feriados-relatorio-cabecalho">
+                <span class="feriados-relatorio-icone" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3.5" y="5" width="17" height="15.5" rx="2" />
+                        <path d="M7.5 3v4M16.5 3v4M3.5 9.5h17M8 13h2M14 13h2M8 16.5h2" />
+                    </svg>
+                </span>
+                <div>
+                    <span class="painel-relatorio-etiqueta">CALENDÁRIO DO PERÍODO</span>
+                    <h3>Feriados</h3>
+                    <p id="estadoFeriados" class="descricao"></p>
+                </div>
+            </div>
+
+            <div class="tabela-container tabela-feriados-relatorio">
+                <table>
+                    <caption class="texto-acessivel">Feriados identificados no período consultado, com data, dia da semana, nome e tipo.</caption>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Dia da semana</th>
+                            <th>Feriado</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaFeriados">
+                        <tr>
+                            <td colspan="4">Nenhum relatório consultado.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+</main>
+
+<script src="../js/relatorios.js"></script>
+<script src="../js/layout.js"></script>
+</body>
+</html>

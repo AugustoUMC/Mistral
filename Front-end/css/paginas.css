@@ -1,0 +1,513 @@
+
+.mistral-app .conteudo-inicio {
+    max-width: 1520px;
+    padding: 38px 40px 54px;
+}
+
+.mistral-app .inicio-introducao {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 27px;
+}
+
+.mistral-app .inicio-sobretitulo {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--cor-azul);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.15px;
+}
+
+.mistral-app .inicio-introducao h2 {
+    margin: 0 0 7px;
+    color: var(--cor-marinho);
+    font-size: 29px;
+    line-height: 1.2;
+}
+
+.mistral-app .inicio-introducao p {
+    max-width: 680px;
+    margin: 0;
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-base);
+    line-height: 1.6;
+}
+
+.mistral-app .inicio-destaque {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(250px, 0.85fr);
+    align-items: center;
+    min-height: 258px;
+    padding: 34px 42px;
+    overflow: hidden;
+    border: 1px solid #203C5D;
+    border-radius: 18px;
+    color: #FFFFFF;
+    background: linear-gradient(112deg, #15263E 0%, #1A3656 62%, #21466B 100%);
+    box-shadow: 0 12px 28px rgba(21, 38, 62, 0.13);
+}
+
+.mistral-app .inicio-destaque::after {
+    position: absolute;
+    top: -125px;
+    right: 10%;
+    width: 340px;
+    height: 340px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.mistral-app .inicio-destaque-conteudo {
+    position: relative;
+    z-index: 1;
+    max-width: 590px;
+}
+
+.mistral-app .inicio-etiqueta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 4px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    color: #D7E6F8;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.mistral-app .inicio-destaque h3 {
+    margin: 15px 0 8px;
+    color: #FFFFFF;
+    font-size: 32px;
+    line-height: 1.15;
+}
+
+.mistral-app .inicio-destaque p {
+    max-width: 470px;
+    margin: 0;
+    color: #D3DFED;
+    font-size: var(--texto-base);
+    line-height: 1.6;
+}
+
+.mistral-app .inicio-destaque-acao {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 42px;
+    margin-top: 23px;
+    padding: 9px 15px;
+    border: 1px solid #FFFFFF;
+    border-radius: 8px;
+    color: var(--cor-marinho);
+    background: #FFFFFF;
+    font-size: var(--texto-secundario);
+    font-weight: 700;
+    transition: background var(--transicao-padrao), transform var(--transicao-padrao);
+}
+
+.mistral-app .inicio-destaque-acao:hover {
+    transform: translateY(-1px);
+    color: var(--cor-marinho);
+    background: #EAF1FA;
+}
+
+.mistral-app .inicio-destaque-acao svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.mistral-app .inicio-destaque-visual {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 180px;
+}
+
+.mistral-app .inicio-destaque-visual svg {
+    width: min(100%, 330px);
+    height: auto;
+    overflow: visible;
+}
+
+.mistral-app .inicio-destaque-visual rect {
+    fill: rgba(255, 255, 255, 0.08);
+    stroke: rgba(218, 232, 249, 0.72);
+    stroke-width: 2;
+}
+
+.mistral-app .inicio-destaque-visual path {
+    fill: none;
+    stroke: #D5E6F8;
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.mistral-app .inicio-destaque-visual circle {
+    fill: var(--cor-verde-azulado);
+    stroke: #B9F0E2;
+    stroke-width: 2;
+}
+
+.mistral-app .inicio-destaque-visual circle + path {
+    stroke: #FFFFFF;
+    stroke-width: 3;
+}
+
+.mistral-app .inicio-secao {
+    margin-top: 35px;
+}
+
+.mistral-app .inicio-secao-cabecalho {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 22px;
+    margin-bottom: 16px;
+}
+
+.mistral-app .inicio-secao-cabecalho .inicio-sobretitulo {
+    margin-bottom: 5px;
+}
+
+.mistral-app .inicio-secao-cabecalho h3 {
+    margin: 0;
+    color: var(--cor-marinho);
+    font-size: 19px;
+}
+
+.mistral-app .inicio-secao-cabecalho > p {
+    max-width: 390px;
+    margin: 0 0 2px;
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+    text-align: right;
+}
+
+.mistral-app .inicio-grade-gestao {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.mistral-app .inicio-atalho {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+    min-height: 122px;
+    padding: 21px 22px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 13px;
+    color: var(--cor-texto);
+    background: #FFFFFF;
+    box-shadow: var(--sombra-leve);
+    transition: border-color var(--transicao-padrao), box-shadow var(--transicao-padrao), transform var(--transicao-padrao);
+}
+
+.mistral-app .inicio-atalho:hover {
+    transform: translateY(-2px);
+    border-color: #C6D6F3;
+    color: var(--cor-texto);
+    box-shadow: var(--sombra-media);
+}
+
+.mistral-app .inicio-atalho-icone,
+.mistral-app .inicio-consulta-icone,
+.mistral-app .inicio-feriados-icone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    color: var(--cor-azul);
+    background: #EDF3FF;
+}
+
+.mistral-app .inicio-atalho-gerenciamento .inicio-atalho-icone {
+    color: var(--cor-verde-azulado);
+    background: #EAF6F2;
+}
+
+.mistral-app .inicio-atalho-icone svg,
+.mistral-app .inicio-consulta-icone svg,
+.mistral-app .inicio-feriados-icone svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.mistral-app .inicio-atalho-texto {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.mistral-app .inicio-atalho-texto strong {
+    color: var(--cor-marinho);
+    font-size: 15px;
+}
+
+.mistral-app .inicio-atalho-texto small {
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+    line-height: 1.55;
+}
+
+.mistral-app .inicio-atalho-seta {
+    align-self: flex-start;
+    color: #90A0B5;
+    font-size: 20px;
+    line-height: 1;
+    transition: color var(--transicao-padrao), transform var(--transicao-padrao);
+}
+
+.mistral-app .inicio-atalho:hover .inicio-atalho-seta {
+    transform: translate(2px, -2px);
+    color: var(--cor-azul);
+}
+
+.mistral-app .inicio-grade-consultas {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(250px, 0.85fr);
+    gap: 16px;
+}
+
+.mistral-app .inicio-consulta-relatorios {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-content: center;
+    align-items: start;
+    gap: 13px 17px;
+    min-height: 150px;
+    padding: 22px 24px;
+    border: 1px solid #D8E3F3;
+    border-radius: 13px;
+    color: var(--cor-texto);
+    background: #EDF3FB;
+    transition: border-color var(--transicao-padrao), box-shadow var(--transicao-padrao), transform var(--transicao-padrao);
+}
+
+.mistral-app .inicio-consulta-relatorios:hover {
+    transform: translateY(-2px);
+    border-color: #BFCFE9;
+    color: var(--cor-texto);
+    box-shadow: var(--sombra-media);
+}
+
+.mistral-app .inicio-consulta-icone {
+    grid-row: span 2;
+    color: #285DBB;
+    background: #FFFFFF;
+}
+
+.mistral-app .inicio-consulta-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mistral-app .inicio-consulta-texto strong,
+.mistral-app .inicio-consulta-feriados strong {
+    color: var(--cor-marinho);
+    font-size: 15px;
+}
+
+.mistral-app .inicio-consulta-texto small,
+.mistral-app .inicio-consulta-feriados small {
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+    line-height: 1.55;
+}
+
+.mistral-app .inicio-consulta-acao {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    grid-column: 2;
+    color: #285DBB;
+    font-size: var(--texto-pequeno);
+    font-weight: 700;
+}
+
+.mistral-app .inicio-consulta-acao span,
+.mistral-app .inicio-link-secundario span {
+    font-size: 17px;
+    transition: transform var(--transicao-padrao);
+}
+
+.mistral-app .inicio-consulta-relatorios:hover .inicio-consulta-acao span,
+.mistral-app .inicio-consulta-feriados:hover .inicio-link-secundario span {
+    transform: translateX(3px);
+}
+
+.mistral-app .inicio-consulta-feriados {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 150px;
+    padding: 21px 23px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 13px;
+    color: var(--cor-texto);
+    background: #FFFFFF;
+    transition: border-color var(--transicao-padrao), box-shadow var(--transicao-padrao), transform var(--transicao-padrao);
+}
+
+.mistral-app .inicio-consulta-feriados:hover {
+    transform: translateY(-2px);
+    border-color: #B9DCD2;
+    color: var(--cor-texto);
+    box-shadow: var(--sombra-media);
+}
+
+.mistral-app .inicio-feriados-icone {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+    margin-bottom: 11px;
+    color: var(--cor-verde-azulado);
+    background: #EAF6F2;
+}
+
+.mistral-app .inicio-consulta-feriados strong {
+    margin-bottom: 4px;
+}
+
+.mistral-app .inicio-link-secundario {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 11px;
+    color: var(--cor-verde-azulado);
+    font-size: var(--texto-pequeno);
+    font-weight: 700;
+}
+
+@media (max-width: 1050px) {
+    .mistral-app .conteudo-inicio {
+        padding: 30px 26px 44px;
+    }
+
+    .mistral-app .inicio-destaque {
+        grid-template-columns: minmax(0, 1fr) minmax(190px, 0.65fr);
+        padding: 30px;
+    }
+
+    .mistral-app .inicio-grade-consultas {
+        grid-template-columns: minmax(0, 1.3fr) minmax(220px, 0.9fr);
+    }
+}
+
+@media (max-width: 760px) {
+    .mistral-app .conteudo-inicio {
+        padding: 25px 18px 38px;
+    }
+
+    .mistral-app .inicio-introducao h2 {
+        font-size: 25px;
+    }
+
+    .mistral-app .inicio-destaque {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        padding: 28px;
+    }
+
+    .mistral-app .inicio-destaque-visual {
+        display: none;
+    }
+
+    .mistral-app .inicio-grade-consultas {
+        grid-template-columns: 1fr;
+    }
+
+    .mistral-app .inicio-consulta-relatorios,
+    .mistral-app .inicio-consulta-feriados {
+        min-height: 135px;
+    }
+}
+
+@media (max-width: 560px) {
+    .mistral-app .conteudo-inicio {
+        padding: 22px 14px 32px;
+    }
+
+    .mistral-app .inicio-introducao {
+        margin-bottom: 20px;
+    }
+
+    .mistral-app .inicio-introducao h2 {
+        font-size: 23px;
+    }
+
+    .mistral-app .inicio-introducao p {
+        font-size: var(--texto-secundario);
+    }
+
+    .mistral-app .inicio-destaque {
+        padding: 25px 22px;
+        border-radius: 14px;
+    }
+
+    .mistral-app .inicio-destaque h3 {
+        font-size: 27px;
+    }
+
+    .mistral-app .inicio-secao {
+        margin-top: 29px;
+    }
+
+    .mistral-app .inicio-secao-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .mistral-app .inicio-secao-cabecalho h3 {
+        font-size: 17px;
+    }
+
+    .mistral-app .inicio-secao-cabecalho > p {
+        text-align: left;
+    }
+
+    .mistral-app .inicio-grade-gestao {
+        grid-template-columns: 1fr;
+        gap: 11px;
+    }
+
+    .mistral-app .inicio-atalho {
+        min-height: 105px;
+        padding: 17px;
+    }
+
+    .mistral-app .inicio-consulta-relatorios {
+        padding: 19px;
+    }
+}

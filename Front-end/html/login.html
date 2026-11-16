@@ -1,66 +1,139 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#15263E">
     <title>Mistral - Login</title>
+
+    <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-
-<div class="pagina-login">
-
-    <div class="cartao-login">
-
-        <div class="cabecalho">
-            <h1>Mistral</h1>
-            <p>Sistema de Controle de Produção</p>
-        </div>
-
-        <form id="formularioLogin">
-
-            <div class="campo">
-                <label for="matricula">Matrícula</label>
-                <input
-                    type="text"
-                    id="matricula"
-                    name="matricula"
-                    placeholder="Digite sua matrícula"
-                    required
-                >
+    <main class="pagina-login">
+        <section class="login-apresentacao" aria-label="Apresentação do Mistral">
+            <div class="login-marca">
+                <span class="login-marca-simbolo" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 6.5 12 2l8 4.5v9L12 20l-8-4.5z" />
+                        <path d="m4.5 6.8 7.5 4.4 7.5-4.4M12 11.2V20M8 4.3l8 4.5" />
+                    </svg>
+                </span>
+                <span>
+                    <strong>Mistral</strong>
+                    <small>CONTROLE DE PRODUÇÃO</small>
+                </span>
             </div>
 
-            <div class="campo">
-                <label for="senha">Senha</label>
-                <input
-                    type="password"
-                    id="senha"
-                    name="senha"
-                    placeholder="Digite sua senha"
-                    required
-                >
+            <div class="login-apresentacao-texto">
+                <span class="login-apresentacao-etiqueta">GESTÃO DA PRODUÇÃO</span>
+                <h2>Organização e controle para a rotina industrial.</h2>
+                <p>Centralize os registros de produção, organize grupos e metas e acompanhe as informações da operação em um único sistema.</p>
             </div>
 
-            <button type="submit">Entrar</button>
+            <div class="login-apresentacao-rodape">
+                <span aria-hidden="true"></span>
+                Sistema de Controle de Produção
+            </div>
+        </section>
 
-            <p id="mensagem"></p>
+        <section class="cartao-login" aria-labelledby="tituloLogin">
+            <div class="cabecalho">
+                <span class="login-etiqueta">ACESSO AO SISTEMA</span>
+                <h1 id="tituloLogin">Entrar no Mistral</h1>
+                <p>Informe suas credenciais para acessar o ambiente de trabalho.</p>
+            </div>
 
-        </form>
+            <form id="formularioLogin">
+                <div class="campo">
+                    <label for="matricula">Matrícula</label>
+                    <input
+                        type="text"
+                        id="matricula"
+                        name="matricula"
+                        placeholder="Digite sua matrícula"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
 
-        <div class="links-informacoes">
-            <a href="politica-privacidade.html">
-                Política de Privacidade
-            </a>
+                <div class="campo">
+                    <label for="senha">Senha</label>
 
-            <a href="termos-uso.html">
-                Termos de Uso
-            </a>
-        </div>
+                    <div class="campo-senha-controle">
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="Digite sua senha"
+                            autocomplete="current-password"
+                            required
+                        >
 
-    </div>
+                        <button
+                            type="button"
+                            id="botaoMostrarSenha"
+                            class="botao-olho"
+                            aria-label="Mostrar senha"
+                            aria-pressed="false"
+                            title="Mostrar senha"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                                <line
+                                    id="riscoOlho"
+                                    x1="3"
+                                    y1="3"
+                                    x2="21"
+                                    y2="21"
+                                    style="display: none;"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
 
-</div>
+                <button type="submit">Entrar</button>
+                <p id="mensagem" role="status" aria-live="polite"></p>
+            </form>
 
-<script src="../js/login.js"></script>
+            <nav class="links-informacoes" aria-label="Informações do sistema">
+                <a href="Politica-privacidade.html">Política de Privacidade</a>
+                <a href="termos-uso.html">Termos de Uso</a>
+            </nav>
+        </section>
+    </main>
+
+    <script src="../js/login.js"></script>
+
+    <script>
+        const campoSenha = document.getElementById("senha");
+        const botaoMostrarSenha = document.getElementById("botaoMostrarSenha");
+        const riscoOlho = document.getElementById("riscoOlho");
+
+        botaoMostrarSenha.addEventListener("click", function () {
+            const mostrar = campoSenha.type === "password";
+
+            campoSenha.type = mostrar ? "text" : "password";
+            riscoOlho.style.display = mostrar ? "block" : "none";
+
+            botaoMostrarSenha.setAttribute(
+                "aria-label",
+                mostrar ? "Ocultar senha" : "Mostrar senha"
+            );
+
+            botaoMostrarSenha.setAttribute(
+                "title",
+                mostrar ? "Ocultar senha" : "Mostrar senha"
+            );
+
+            botaoMostrarSenha.setAttribute(
+                "aria-pressed",
+                String(mostrar)
+            );
+        });
+    </script>
 </body>
 </html>

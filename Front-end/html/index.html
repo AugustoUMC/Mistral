@@ -1,211 +1,166 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#15263E">
     <title>Mistral - Início</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            color: #1f2937;
-        }
-
-        .cabecalho {
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 40px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo h1 {
-            font-size: 26px;
-        }
-
-        .logo span {
-            color: #6b7280;
-            font-size: 14px;
-        }
-
-        .botao-sair {
-            border: none;
-            background: transparent;
-            color: #374151;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .botao-sair:hover {
-            color: #dc2626;
-        }
-
-        .conteudo {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .apresentacao {
-            margin-bottom: 35px;
-        }
-
-        .apresentacao h2 {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .apresentacao p {
-            color: #6b7280;
-            font-size: 15px;
-        }
-
-        .menu {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .cartao {
-            display: block;
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 28px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-decoration: none;
-            color: #1f2937;
-        }
-
-        .cartao:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .cartao h3 {
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-
-        .cartao p {
-            color: #6b7280;
-            line-height: 1.5;
-            font-size: 14px;
-        }
-
-        @media (max-width: 700px) {
-            .cabecalho {
-                padding: 0 20px;
-            }
-
-            .menu {
-                grid-template-columns: 1fr;
-            }
-
-            .conteudo {
-                padding: 30px 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/paginas.css">
 </head>
-
 <body>
-
-<header class="cabecalho">
-
-    <div class="logo">
-        <h1>Mistral</h1>
-        <span>Sistema de Controle de Produção</span>
-    </div>
-
-    <button class="botao-sair" id="botaoSair">
-        Sair
-    </button>
-
-</header>
-
-<main class="conteudo">
-
-    <section class="apresentacao">
-        <h2>Início</h2>
-
-        <p>
-            Acompanhe e controle as informações relacionadas à produção da fábrica.
-        </p>
-    </section>
-
-    <section class="menu">
-
-        <div class="cartao">
-            <h3>Funcionários</h3>
-
-            <p>
-                Cadastro e organização dos funcionários da fábrica.
-            </p>
+    <header class="cabecalho">
+        <div class="logo">
+            <h1>Mistral</h1>
+            <span>Sistema de Controle de Produção</span>
         </div>
 
-        <a class="cartao" href="gerenciamento.html">
-            <h3>Grupos e Metas</h3>
+        <button class="botao-sair" id="botaoSair" type="button">
+            Sair
+        </button>
+    </header>
 
-            <p>
-                Gerenciamento dos grupos de produção e das metas estabelecidas.
-            </p>
-        </a>
+    <main class="conteudo conteudo-inicio">
+        <section class="inicio-introducao" aria-labelledby="tituloInicio">
+            <div>
+                <span class="inicio-sobretitulo">AMBIENTE DE OPERAÇÃO</span>
+                <h2 id="tituloInicio">Bem-vindo ao Mistral</h2>
+                <p>Acesse as áreas do sistema para organizar e acompanhar as rotinas da fábrica.</p>
+            </div>
+        </section>
 
-        <div class="cartao">
-            <h3>Produção</h3>
+        <section class="inicio-destaque" aria-labelledby="tituloProducao">
+            <div class="inicio-destaque-conteudo">
+                <span class="inicio-etiqueta">OPERAÇÃO</span>
+                <h3 id="tituloProducao">Produção</h3>
+                <p>Registre a produção, informe peças defeituosas e consulte os registros realizados.</p>
 
-            <p>
-                Registro e acompanhamento das quantidades produzidas.
-            </p>
-        </div>
+                <a class="inicio-destaque-acao" href="producao.html">
+                    Acessar produção
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                </a>
+            </div>
 
-        <div class="cartao">
-            <h3>Consultas e Relatórios</h3>
+            <div class="inicio-destaque-visual" aria-hidden="true">
+                <svg viewBox="0 0 360 220" role="presentation">
+                    <rect x="73" y="29" width="176" height="142" rx="12" transform="rotate(-8 73 29)" />
+                    <rect x="104" y="44" width="176" height="142" rx="12" transform="rotate(5 104 44)" />
+                    <path d="M145 83h91M139 108h111M134 133h72" />
+                    <circle cx="278" cy="52" r="24" />
+                    <path d="M267 52l8 8 15-17" />
+                </svg>
+            </div>
+        </section>
 
-            <p>
-                Consulta dos resultados e acompanhamento do cumprimento das metas.
-            </p>
-        </div>
+        <section class="inicio-secao" aria-labelledby="tituloGestao">
+            <div class="inicio-secao-cabecalho">
+                <div>
+                    <span class="inicio-sobretitulo">GESTÃO</span>
+                    <h3 id="tituloGestao">Organização e planejamento</h3>
+                </div>
+                <p>Cadastros e configurações que dão suporte à operação.</p>
+            </div>
 
-        <a class="cartao" href="feriados.html">
-            <h3>Feriados</h3>
+            <div class="inicio-grade-gestao">
+                <a class="inicio-atalho inicio-atalho-funcionarios" href="funcionarios.html">
+                    <span class="inicio-atalho-icone" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="9" cy="8" r="3.2" />
+                            <path d="M3.5 19v-1.2a5.5 5.5 0 0 1 11 0V19zM16 5.2a3.2 3.2 0 0 1 0 6.2M17 14a4.7 4.7 0 0 1 3.5 4.5V19h-3" />
+                        </svg>
+                    </span>
 
-            <p>
-                Consulta dos feriados para auxiliar no planejamento da produção.
-            </p>
-        </a>
+                    <span class="inicio-atalho-texto">
+                        <strong>Funcionários</strong>
+                        <small>Cadastros, dados pessoais e vínculos com grupos.</small>
+                    </span>
 
-    </section>
+                    <span class="inicio-atalho-seta" aria-hidden="true">↗</span>
+                </a>
 
-</main>
+                <a class="inicio-atalho inicio-atalho-gerenciamento" href="gerenciamento.html">
+                    <span class="inicio-atalho-icone" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3.5" y="4" width="7" height="7" rx="1.5" />
+                            <rect x="13.5" y="4" width="7" height="7" rx="1.5" />
+                            <rect x="3.5" y="14" width="7" height="7" rx="1.5" />
+                            <path d="M15 17.5h5M17.5 15v5" />
+                        </svg>
+                    </span>
 
-<script src="../js/index.js"></script>
+                    <span class="inicio-atalho-texto">
+                        <strong>Grupos e Metas</strong>
+                        <small>Grupos de produção, produtos e metas estabelecidas.</small>
+                    </span>
 
-<script>
-    const botaoSair = document.getElementById("botaoSair");
+                    <span class="inicio-atalho-seta" aria-hidden="true">↗</span>
+                </a>
+            </div>
+        </section>
 
-    botaoSair.addEventListener("click", function () {
-        localStorage.removeItem("token");
-        window.location.replace("login.html");
-    });
-</script>
+        <section class="inicio-secao inicio-secao-consultas" aria-labelledby="tituloConsultas">
+            <div class="inicio-secao-cabecalho">
+                <div>
+                    <span class="inicio-sobretitulo">CONSULTAS</span>
+                    <h3 id="tituloConsultas">Acompanhamento e informações</h3>
+                </div>
+            </div>
 
+            <div class="inicio-grade-consultas">
+                <a class="inicio-consulta-relatorios" href="relatorios.html">
+                    <span class="inicio-consulta-icone" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 19.5h16M6.5 16V10M12 16V5M17.5 16v-3.5" />
+                            <path d="M4.5 7.5l5-3 4.5 2 5.5-3" />
+                        </svg>
+                    </span>
+
+                    <span class="inicio-consulta-texto">
+                        <strong>Relatórios de produção</strong>
+                        <small>Consulte quantidades produzidas, defeitos, metas e detalhamentos por período.</small>
+                    </span>
+
+                    <span class="inicio-consulta-acao">
+                        Consultar relatórios
+                        <span aria-hidden="true">→</span>
+                    </span>
+                </a>
+
+                <a class="inicio-consulta-feriados" href="feriados.html">
+                    <span class="inicio-feriados-icone" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3.5" y="5" width="17" height="15" rx="2" />
+                            <path d="M7.5 3v4M16.5 3v4M3.5 9.5h17M8 13h2M14 13h2M8 16.5h2" />
+                        </svg>
+                    </span>
+
+                    <strong>Feriados</strong>
+                    <small>Consulte os feriados para apoiar o planejamento da produção.</small>
+
+                    <span class="inicio-link-secundario">
+                        Consultar calendário
+                        <span aria-hidden="true">→</span>
+                    </span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/index.js"></script>
+
+    <script>
+        document.getElementById("botaoSair").addEventListener("click", function () {
+            localStorage.removeItem("token");
+            window.location.replace("login.html");
+        });
+    </script>
+
+    <script src="../js/layout.js"></script>
 </body>
 </html>

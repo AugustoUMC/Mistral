@@ -1,48 +1,64 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#15263E">
     <title>Mistral - Feriados</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes.css">
     <link rel="stylesheet" href="../css/feriados.css">
 </head>
-
 <body>
-
 <header class="cabecalho">
-
     <div class="logo">
         <h1>Mistral</h1>
-        <span>Feriados</span>
+        <span>Consulta de Feriados</span>
     </div>
 
-    <div class="acoes-cabecalho">
+    <nav class="acoes-cabecalho" aria-label="Ações da página">
         <a href="index.html">Início</a>
-        <button id="botaoSair">Sair</button>
-    </div>
-
+        <a href="relatorios.html">Relatórios</a>
+        <button id="botaoSair" type="button">Sair</button>
+    </nav>
 </header>
 
-<main class="conteudo">
+<main class="conteudo conteudo-feriados">
+    <section class="cabecalho-feriados" aria-labelledby="tituloFeriados">
+        <div>
+            <span class="sobretitulo-feriados">CALENDÁRIO E PLANEJAMENTO</span>
+            <h2 id="tituloFeriados">Consulta de feriados</h2>
+            <p>Consulte os feriados de um ano e utilize essas informações no planejamento das atividades da fábrica.</p>
+        </div>
 
-    <section class="cabecalho-pagina">
-
-        <h2>Consulta de feriados</h2>
-
-        <p>
-            Consulte os feriados de um determinado ano.
-        </p>
-
+        <span class="contexto-feriados">
+            <span aria-hidden="true"></span>
+            Consulta anual
+        </span>
     </section>
 
-    <section class="cartao">
+    <section class="painel-consulta-feriados" aria-labelledby="tituloConsultaFeriados">
+        <div class="consulta-feriados-introducao">
+            <span class="icone-calendario-feriados" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                    <rect x="3.5" y="5" width="17" height="15.5" rx="2" />
+                    <path d="M7.5 3v4M16.5 3v4M3.5 9.5h17M8 13h.01M12 13h.01M16 13h.01M8 16.5h.01M12 16.5h.01" />
+                </svg>
+            </span>
 
-        <form id="formularioFeriado">
+            <div>
+                <span class="consulta-feriados-etiqueta">PESQUISA POR ANO</span>
+                <h3 id="tituloConsultaFeriados">Selecione o ano</h3>
+                <p>Informe o ano desejado para consultar a relação de feriados disponível.</p>
+            </div>
+        </div>
 
-            <div class="campo">
-
-                <label for="ano">Ano</label>
-
+        <form id="formularioFeriado" class="formulario-feriados">
+            <div class="campo campo-ano-feriados">
+                <label for="ano">Ano de consulta</label>
                 <input
                     type="number"
                     id="ano"
@@ -51,37 +67,40 @@
                     value="2026"
                     required
                 >
-
             </div>
 
-            <button type="submit">
+            <button class="botao" type="submit">
                 Consultar feriados
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
             </button>
-
         </form>
 
-        <p id="mensagem"></p>
-
+        <p id="mensagem" class="mensagem mensagem-feriados" role="status" aria-live="polite"></p>
     </section>
 
-    <section class="cartao tabela-area">
-
-        <div class="titulo-tabela">
-
-            <div>
-                <h3>Feriados</h3>
-
-                <p>
-                    Feriados encontrados para o ano informado.
-                </p>
+    <section class="painel-resultado-feriados" aria-labelledby="tituloResultadoFeriados">
+        <div class="resultado-feriados-cabecalho">
+            <div class="resultado-feriados-titulo">
+                <span class="resultado-feriados-etiqueta">CALENDÁRIO CONSULTADO</span>
+                <h3 id="tituloResultadoFeriados">Feriados encontrados</h3>
+                <p>Relação de feriados retornada para o ano informado.</p>
             </div>
 
+            <span class="resultado-feriados-simbolo" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                    <path d="M5 4.5h14a1.5 1.5 0 0 1 1.5 1.5v13H3.5V6A1.5 1.5 0 0 1 5 4.5Z" />
+                    <path d="M7.5 2.5v4M16.5 2.5v4M3.5 9.5h17M8 13h.01M12 13h.01M16 13h.01M8 16.5h.01M12 16.5h.01" />
+                </svg>
+            </span>
         </div>
 
-        <div class="tabela-container">
-
-            <table>
-
+        <div class="tabela-container tabela-feriados-container">
+            <table class="tabela-feriados">
+                <caption class="texto-acessivel">
+                    Feriados do ano consultado, com data, nome, tipo e dia da semana.
+                </caption>
                 <thead>
                     <tr>
                         <th>Data</th>
@@ -90,26 +109,17 @@
                         <th>Dia da semana</th>
                     </tr>
                 </thead>
-
                 <tbody id="listaFeriados">
-
                     <tr>
-                        <td colspan="4">
-                            Nenhum feriado carregado.
-                        </td>
+                        <td colspan="4">Nenhum feriado carregado.</td>
                     </tr>
-
                 </tbody>
-
             </table>
-
         </div>
-
     </section>
-
 </main>
 
 <script src="../js/feriados.js"></script>
-
+<script src="../js/layout.js"></script>
 </body>
 </html>

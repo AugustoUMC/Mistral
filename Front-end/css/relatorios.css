@@ -1,0 +1,577 @@
+
+.mistral-app .conteudo-relatorios {
+    max-width: 1600px;
+    padding: 32px 36px 50px;
+}
+
+.mistral-app .cabecalho-relatorios {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 22px;
+    margin-bottom: 23px;
+    padding-bottom: 19px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.mistral-app .sobretitulo-relatorios,
+.mistral-app .consulta-relatorio-etiqueta,
+.mistral-app .resultado-relatorios-etiqueta,
+.mistral-app .painel-relatorio-etiqueta {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--cor-azul);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.05px;
+}
+
+.mistral-app .cabecalho-relatorios h2 {
+    margin: 0 0 7px;
+    color: var(--cor-marinho);
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+.mistral-app .cabecalho-relatorios p {
+    max-width: 720px;
+    margin: 0;
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+.mistral-app .contexto-relatorios {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+    padding: 9px 13px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 999px;
+    color: var(--cor-texto-secundario);
+    background: #FFFFFF;
+    font-size: var(--texto-pequeno);
+    font-weight: 600;
+}
+
+.mistral-app .contexto-relatorios > span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--cor-verde-azulado);
+    box-shadow: 0 0 0 3px rgba(15, 139, 120, 0.12);
+}
+
+.mistral-app .consultas-relatorios {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+    align-items: stretch;
+    gap: 16px;
+}
+
+.mistral-app .consulta-relatorio {
+    min-width: 0;
+    padding: 21px 23px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 13px;
+    background: #FFFFFF;
+    box-shadow: var(--sombra-leve);
+}
+
+.mistral-app .consulta-periodo {
+    border-top: 3px solid var(--cor-azul);
+}
+
+.mistral-app .consulta-mensal {
+    border-top: 3px solid var(--cor-verde-azulado);
+}
+
+.mistral-app .consulta-relatorio-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 19px;
+}
+
+.mistral-app .consulta-relatorio-icone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 43px;
+    width: 43px;
+    height: 43px;
+    border-radius: 11px;
+}
+
+.mistral-app .consulta-relatorio-icone svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.mistral-app .icone-periodo {
+    color: var(--cor-azul);
+    background: #EDF3FF;
+}
+
+.mistral-app .icone-mensal {
+    color: var(--cor-verde-azulado);
+    background: #EAF6F2;
+}
+
+.mistral-app .consulta-relatorio-etiqueta {
+    margin-bottom: 3px;
+    color: var(--cor-texto-secundario);
+    font-size: 9px;
+}
+
+.mistral-app .consulta-relatorio-cabecalho h3 {
+    margin: 0 0 4px;
+    color: var(--cor-marinho);
+    font-size: 17px;
+}
+
+.mistral-app .consulta-relatorio-cabecalho p {
+    margin: 0;
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+    line-height: 1.45;
+}
+
+.mistral-app .consulta-relatorio .campos {
+    gap: 0 14px;
+}
+
+.mistral-app .consulta-relatorio .campo {
+    min-width: 0;
+    margin-bottom: 13px;
+}
+
+.mistral-app .consulta-relatorio .campo label {
+    margin-bottom: 6px;
+    font-size: 12px;
+}
+
+.mistral-app .consulta-relatorio .campo input,
+.mistral-app .consulta-relatorio .campo select {
+    min-height: 42px;
+}
+
+.mistral-app .consulta-relatorio form > .botao {
+    min-height: 40px;
+    font-size: 12px;
+}
+
+.mistral-app .consulta-mensal form > .botao {
+    border-color: var(--cor-verde-azulado);
+    background: var(--cor-verde-azulado);
+}
+
+.mistral-app .consulta-mensal form > .botao:hover:not(:disabled) {
+    border-color: #0B7465;
+    background: #0B7465;
+}
+
+.mistral-app .mensagem-relatorio {
+    margin: 14px 0 0;
+}
+
+.mistral-app .area-resultado-relatorios {
+    margin-top: 30px;
+}
+
+.mistral-app .resultado-relatorios-cabecalho {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 19px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.mistral-app .resultado-relatorios-etiqueta {
+    margin-bottom: 4px;
+    color: var(--cor-verde-azulado);
+    font-size: 9px;
+}
+
+.mistral-app .resultado-relatorios-cabecalho h2 {
+    margin: 0 0 5px;
+    color: var(--cor-marinho);
+    font-size: 23px;
+}
+
+.mistral-app .resultado-relatorios-cabecalho .descricao {
+    margin: 0;
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+}
+
+.mistral-app #botaoImprimir {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-shrink: 0;
+    min-height: 39px;
+    padding: 8px 13px;
+    font-size: 12px;
+}
+
+.mistral-app #botaoImprimir svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.mistral-app .resumos-relatorios {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 13px;
+    margin: 0 0 20px;
+}
+
+.mistral-app .resumos-relatorios .resumo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    min-height: 145px;
+    padding: 16px 17px;
+    border: 1px solid var(--cor-borda);
+    border-top: 3px solid #8FA5C2;
+    border-radius: 11px;
+    background: #FFFFFF;
+    box-shadow: var(--sombra-leve);
+}
+
+.mistral-app .resumos-relatorios .indicador-etiqueta {
+    display: block;
+    min-height: 15px;
+    margin-bottom: 9px;
+    color: var(--cor-texto-suave);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.75px;
+}
+
+.mistral-app .resumos-relatorios .resumo-titulo {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--cor-texto-secundario);
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.mistral-app .resumos-relatorios .resumo strong {
+    display: block;
+    max-width: 100%;
+    color: var(--cor-marinho);
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+    font-variant-numeric: tabular-nums;
+}
+
+.mistral-app .resumos-relatorios .resumo small {
+    display: block;
+    margin-top: auto;
+    padding-top: 8px;
+    color: var(--cor-texto-suave);
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.mistral-app .indicador-produzido {
+    border-top-color: var(--cor-azul) !important;
+}
+
+.mistral-app .indicador-defeituoso {
+    border-top-color: #C46B6B !important;
+}
+
+.mistral-app .indicador-meta-atingida {
+    border-top-color: var(--cor-verde-azulado) !important;
+}
+
+.mistral-app .indicador-percentual-defeituoso {
+    border-top-color: #D39B50 !important;
+}
+
+.mistral-app .painel-detalhes-relatorio,
+.mistral-app .painel-feriados-relatorio {
+    min-width: 0;
+    margin-top: 17px;
+    padding: 22px 23px 23px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 13px;
+    background: #FFFFFF;
+    box-shadow: var(--sombra-leve);
+}
+
+.mistral-app .painel-relatorio-cabecalho {
+    margin-bottom: 16px;
+}
+
+.mistral-app .painel-relatorio-etiqueta {
+    margin-bottom: 4px;
+    color: #647B99;
+    font-size: 9px;
+}
+
+.mistral-app .painel-relatorio-cabecalho h3,
+.mistral-app .feriados-relatorio-cabecalho h3 {
+    margin: 0 0 5px;
+    color: var(--cor-marinho);
+    font-size: 18px;
+}
+
+.mistral-app .painel-relatorio-cabecalho p {
+    margin: 0;
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+}
+
+.mistral-app .tabela-detalhes-relatorio,
+.mistral-app .tabela-feriados-relatorio {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--cor-borda);
+    border-radius: 9px;
+}
+
+.mistral-app .tabela-detalhes-relatorio table {
+    min-width: 1000px;
+}
+
+.mistral-app .tabela-feriados-relatorio table {
+    min-width: 560px;
+}
+
+.mistral-app .tabela-detalhes-relatorio th,
+.mistral-app .tabela-feriados-relatorio th {
+    padding: 12px 13px;
+    color: #53647A;
+    background: #F3F6FA;
+    font-size: 9px;
+    letter-spacing: 0.35px;
+    text-transform: uppercase;
+}
+
+.mistral-app .tabela-detalhes-relatorio td,
+.mistral-app .tabela-feriados-relatorio td {
+    padding: 12px 13px;
+    font-size: 11px;
+    vertical-align: middle;
+}
+
+.mistral-app .tabela-detalhes-relatorio tbody tr:nth-child(even),
+.mistral-app .tabela-feriados-relatorio tbody tr:nth-child(even) {
+    background: #FBFCFE;
+}
+
+.mistral-app .tabela-detalhes-relatorio tbody tr:hover,
+.mistral-app .tabela-feriados-relatorio tbody tr:hover {
+    background: #F1F6FF;
+}
+
+.mistral-app .tabela-detalhes-relatorio td:nth-child(4),
+.mistral-app .tabela-detalhes-relatorio td:nth-child(5),
+.mistral-app .tabela-detalhes-relatorio td:nth-child(6),
+.mistral-app .tabela-detalhes-relatorio td:nth-child(7),
+.mistral-app .tabela-detalhes-relatorio td:nth-child(8) {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.mistral-app .tabela-detalhes-relatorio td:nth-child(5) {
+    color: var(--cor-marinho);
+    font-weight: 700;
+}
+
+.mistral-app .tabela-detalhes-relatorio td:nth-child(6) {
+    color: #A64A50;
+}
+
+.mistral-app .painel-feriados-relatorio {
+    padding-bottom: 22px;
+    border-left: 3px solid var(--cor-verde-azulado);
+}
+
+.mistral-app .feriados-relatorio-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.mistral-app .feriados-relatorio-icone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    color: var(--cor-verde-azulado);
+    background: #EAF6F2;
+}
+
+.mistral-app .feriados-relatorio-icone svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.mistral-app .feriados-relatorio-cabecalho h3 {
+    margin-bottom: 3px;
+}
+
+.mistral-app .feriados-relatorio-cabecalho .descricao {
+    margin: 0;
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+    line-height: 1.5;
+}
+
+@media (max-width: 1150px) {
+    .mistral-app .conteudo-relatorios {
+        padding: 29px 25px 44px;
+    }
+
+    .mistral-app .resumos-relatorios {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 850px) {
+    .mistral-app .consultas-relatorios {
+        grid-template-columns: 1fr;
+    }
+
+    .mistral-app .consulta-periodo .campos,
+    .mistral-app .consulta-mensal .campos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mistral-app .resumos-relatorios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .mistral-app .conteudo-relatorios {
+        padding: 22px 14px 36px;
+    }
+
+    .mistral-app .cabecalho-relatorios {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    .mistral-app .cabecalho-relatorios h2 {
+        font-size: 25px;
+    }
+
+    .mistral-app .consulta-relatorio,
+    .mistral-app .painel-detalhes-relatorio,
+    .mistral-app .painel-feriados-relatorio {
+        padding: 18px 16px;
+    }
+
+    .mistral-app .consulta-periodo .campos,
+    .mistral-app .consulta-mensal .campos {
+        grid-template-columns: 1fr;
+    }
+
+    .mistral-app .consulta-relatorio form > .botao {
+        width: 100%;
+    }
+
+    .mistral-app .resultado-relatorios-cabecalho {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .mistral-app #botaoImprimir {
+        width: 100%;
+    }
+
+    .mistral-app .resumos-relatorios {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .mistral-app .resumos-relatorios .resumo {
+        min-height: 125px;
+    }
+}
+
+@media print {
+    .mistral-app .cabecalho-relatorios,
+    .mistral-app .consultas-relatorios,
+    .mistral-app #mensagemRelatorio,
+    .mistral-app #botaoImprimir {
+        display: none !important;
+    }
+
+    .mistral-app .conteudo-relatorios {
+        max-width: none;
+        padding: 0;
+    }
+
+    .mistral-app #areaResultado {
+        display: block !important;
+        margin: 0;
+    }
+
+    .mistral-app .resultado-relatorios-cabecalho {
+        margin-top: 0;
+    }
+
+    .mistral-app .resumos-relatorios {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 7px;
+    }
+
+    .mistral-app .resumos-relatorios .resumo,
+    .mistral-app .painel-detalhes-relatorio,
+    .mistral-app .painel-feriados-relatorio {
+        break-inside: avoid;
+        box-shadow: none;
+    }
+
+    .mistral-app .tabela-detalhes-relatorio,
+    .mistral-app .tabela-feriados-relatorio {
+        overflow: visible;
+    }
+
+    .mistral-app .tabela-detalhes-relatorio table,
+    .mistral-app .tabela-feriados-relatorio table {
+        min-width: 0;
+    }
+
+    .mistral-app .tabela-detalhes-relatorio th,
+    .mistral-app .tabela-detalhes-relatorio td,
+    .mistral-app .tabela-feriados-relatorio th,
+    .mistral-app .tabela-feriados-relatorio td {
+        padding: 6px 4px;
+        font-size: 8px;
+    }
+}
