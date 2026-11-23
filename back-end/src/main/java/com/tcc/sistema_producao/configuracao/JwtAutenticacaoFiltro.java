@@ -146,9 +146,7 @@ public class JwtAutenticacaoFiltro extends OncePerRequestFilter {
 
         String caminho = request.getRequestURI();
 
-        return caminho.equals("/jornadas")
-                || caminho.startsWith("/jornadas/")
-                || caminho.matches(
+        return caminho.matches(
                 "/funcionarios/\\d+/alocacoes-grupos"
         );
     }

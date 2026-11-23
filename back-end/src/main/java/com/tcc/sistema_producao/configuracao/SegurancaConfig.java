@@ -56,11 +56,6 @@ public class SegurancaConfig {
         return provider::authenticate;
     }
 
-    /*
-     * O filtro JWT será executado exclusivamente dentro da cadeia
-     * do Spring Security, evitando seu registro independente
-     * no servlet container.
-     */
     @Bean
     public FilterRegistrationBean<JwtAutenticacaoFiltro>
     jwtAutenticacaoFiltroRegistration() {
@@ -194,23 +189,6 @@ public class SegurancaConfig {
                         .requestMatchers(
                                 HttpMethod.PUT,
                                 "/funcionarios/**"
-                        ).hasRole("ADMIN")
-
-                        .requestMatchers(
-                                HttpMethod.GET,
-                                "/jornadas",
-                                "/jornadas/**"
-                        ).hasAnyRole("ADMIN", "USUARIO")
-
-                        .requestMatchers(
-                                HttpMethod.POST,
-                                "/jornadas",
-                                "/jornadas/**"
-                        ).hasRole("ADMIN")
-
-                        .requestMatchers(
-                                HttpMethod.PUT,
-                                "/jornadas/**"
                         ).hasRole("ADMIN")
 
                         .anyRequest().authenticated()

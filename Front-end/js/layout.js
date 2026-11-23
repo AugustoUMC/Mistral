@@ -115,11 +115,6 @@
 
             const arquivo = destino.pathname.split("/").pop().toLowerCase();
 
-            if (arquivo === "jornada.html") {
-                link.remove();
-                return;
-            }
-
             if ((arquivo === "funcionarios.html" || arquivo === "auditoria.html") && perfil !== "ADMIN") {
                 link.remove();
             }
